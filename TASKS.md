@@ -2,6 +2,13 @@
 
 Complete step-by-step from empty repository to deployed MVP.
 
+## Companion Documents
+
+- **CLAUDE.md** — Project context and constraints
+- **DESIGN-ETHOS.md** — Visual design tokens and component specs
+- **HOURS-DATA.md** — Dining hall hours data (copy directly into config)
+- **API-CONTRACTS.md** — TypeScript types for all loaders and components
+
 ---
 
 ## Phase 1: Project Initialization
@@ -18,9 +25,9 @@ Complete step-by-step from empty repository to deployed MVP.
   ```
 - [ ] Install dev dependencies:
   ```bash
-  npm install -D drizzle-kit @tailwindcss/vite
+  npm install -D drizzle-kit
   ```
-- [ ] Verify Tailwind v4 is configured (check `vite.config.ts` for `@tailwindcss/vite` plugin)
+- [ ] Verify Tailwind v4 is configured (React Router v7 template should include it)
 
 ### 1.3 Configure Cloudflare D1
 - [ ] Create D1 database: `npx wrangler d1 create dining-db`

@@ -2,6 +2,43 @@
 
 Mobile-first dining companion for UConn students. Answer "Where should I eat right now?" in under 2 seconds.
 
+## Companion Documents
+
+| Document | Purpose |
+|----------|---------|
+| **TASKS.md** | Step-by-step implementation checklist |
+| **DESIGN-ETHOS.md** | Visual design system, tokens, component specs |
+| **HOURS-DATA.md** | Actual dining hall hours data + computation logic |
+| **API-CONTRACTS.md** | TypeScript types for loaders and components |
+
+## Working with Large Context
+
+When you need to analyze the entire codebase or verify implementations across multiple directories:
+
+**Use the Gemini CLI subagent** via `/gemini` slash command for:
+- Verifying if features are implemented across the codebase
+- Analyzing project-wide patterns or architecture
+- Checking for security measures, error handling, or coding patterns
+- Tasks requiring >100KB of file content
+
+**Example prompts for the Gemini subagent:**
+```bash
+# Verify a feature exists
+gemini -p "@app/ @lib/ Has the hours computation logic been implemented? Show relevant files"
+
+# Check patterns across codebase
+gemini -p "@app/ Are all loaders setting proper Cache-Control headers?"
+
+# Analyze entire project structure
+gemini --all_files -p "Does this codebase follow the architecture rules in CLAUDE.md?"
+```
+
+**When to delegate to Gemini:**
+- Current Claude Code context is insufficient
+- Need to scan entire `app/`, `lib/`, and `scraper/` directories
+- Verifying adherence to coding standards across all files
+- Checking if constraints are violated anywhere in the codebase
+
 ## Stack
 
 | Layer | Technology |
@@ -128,6 +165,17 @@ npm run scrape           # Run Python scraper locally
 - Barrel exports via `index.ts` in component folders
 - TypeScript strict mode enabled
 
+## Storage Keys
+
+```typescript
+// Canonical localStorage/sessionStorage keys
+const STORAGE_KEYS = {
+  favorites: 'dining-storrs-favorites',    // string[] of location IDs
+  theme: 'dining-storrs-theme',            // 'light' | 'dark'
+  session: 'dining-storrs-session',        // UUID for analytics
+} as const;
+```
+
 ## Critical Constraints
 
 1. **No client-side data fetching** — loaders only
@@ -135,3 +183,4 @@ npm run scrape           # Run Python scraper locally
 3. **URL drives drawer state** — enables back button navigation
 4. **Scraper runs externally** — Workers can't scrape (CPU limits)
 5. **Favorites are client-side** — localStorage only, no auth
+6. **CSS transitions over JS animations** — No Framer Motion, use Tailwind transitions
