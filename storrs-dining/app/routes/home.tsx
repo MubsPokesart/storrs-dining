@@ -2,18 +2,12 @@ import type { Route } from "./+types/home";
 import { NuqsAdapter } from "nuqs/adapters/react-router/v7";
 import { getDb, getAllLocations } from "~/lib/db/queries";
 import { getHoursStatus } from "~/lib/hours";
-import type { Location } from "~/lib/db/types";
+import type { LocationWithStatus } from "~/lib/db/types";
 import { HallCard } from "~/components/hall-card";
 import { MenuDrawer } from "~/components/menu-drawer";
-
-// Type for location with computed hours status
-export interface LocationWithStatus extends Location {
-  isOpen: boolean;
-  currentMeal: string | null;
-  currentMealLabel: string | null;
-  closesAt: string | null;
-  opensAt: string | null;
-}
+import { Navbar } from "~/components/navbar";
+import { useEffect, useState } from "react";
+import { useQueryState } from "nuqs";
 
 // Loader data type matching API-CONTRACTS.md
 export interface HomeLoaderData {
@@ -48,20 +42,19 @@ export async function loader({ context }: Route.LoaderArgs) {
       };
     });
 
-    // Return typed JSON response with cache headers
-    return Response.json(
-      {
-        locations: locationsWithStatus,
-        generatedAt: now.toISOString(),
-      } satisfies HomeLoaderData,
-      {
-        headers: {
-          // Cache for 1 minute, allow stale for 5 minutes
-          // Short cache since hours status changes frequently
-          'Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
-        },
-      }
-    );
+    // Return typed data with cache headers
+    const data: HomeLoaderData = {
+      locations: locationsWithStatus,
+      generatedAt: now.toISOString(),
+    };
+
+    return Response.json(data, {
+      headers: {
+        // Cache for 1 minute, allow stale for 5 minutes
+        // Short cache since hours status changes frequently
+        'Cache-Control': 'public, max-age=60, stale-while-revalidate=300',
+      },
+    });
   } catch (error) {
     console.error('Error loading locations:', error);
     throw new Response('Failed to load dining halls', { status: 500 });
@@ -83,26 +76,64 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+const STORAGE_KEY = "dining-storrs-favorites";
+
 /**
- * Home route component
- * Displays hall cards in grid and menu drawer
+ * Inner component that uses nuqs hooks
  */
-export default function Home({ loaderData }: Route.ComponentProps) {
-  const { locations } = loaderData;
+function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
+  const [hall, setHall] = useQueryState("hall");
+  const [favorites, setFavorites] = useState<Set<string>>(new Set());
+
+  // Load favorites from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        setFavorites(new Set(Array.isArray(parsed) ? parsed : []));
+      } catch {
+        // Invalid JSON, ignore
+      }
+    }
+  }, []);
+
+  // Save favorites to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(favorites)));
+  }, [favorites]);
+
+  const toggleFavorite = (locationId: string) => {
+    setFavorites((prev) => {
+      const next = new Set(prev);
+      if (next.has(locationId)) {
+        next.delete(locationId);
+      } else {
+        next.add(locationId);
+      }
+      return next;
+    });
+  };
+
+  const openMenu = (locationId: string) => {
+    setHall(locationId);
+  };
 
   return (
-    <NuqsAdapter>
-      <main className="min-h-screen bg-[rgb(var(--color-bg-primary))]">
-        {/* Sticky header */}
-        <header className="sticky top-0 z-20 bg-[rgb(var(--color-bg-primary))]/80 backdrop-blur border-b border-[rgb(var(--color-border-secondary))]">
-          <div className="container mx-auto px-4 py-4">
-            <h1 className="font-display text-3xl font-bold text-[rgb(var(--color-text-primary))]">
-              Dining at Storrs
-            </h1>
-            <p className="font-body text-sm text-[rgb(var(--color-text-secondary))] mt-1">
-              UConn Dining Halls
-            </p>
-          </div>
+    <div className="min-h-screen bg-[rgb(var(--color-bg-primary))]">
+      {/* Navbar with theme toggle */}
+      <Navbar />
+
+      {/* Main content */}
+      <main>
+        {/* Header */}
+        <header className="pt-12 pb-8 px-6 text-center">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-[rgb(var(--color-text-primary))] mb-2">
+            Dining at <span className="font-accent text-5xl md:text-6xl">Storrs</span>
+          </h1>
+          <p className="font-body text-lg text-[rgb(var(--color-text-secondary))]">
+            Explore the Dining Halls Across Storrs
+          </p>
         </header>
 
         {/* Hall cards grid */}
@@ -112,6 +143,9 @@ export default function Home({ loaderData }: Route.ComponentProps) {
               <HallCard
                 key={location.id}
                 location={location}
+                isFavorite={favorites.has(location.id)}
+                onFavoriteToggle={toggleFavorite}
+                onCardClick={openMenu}
               />
             ))}
           </div>
@@ -129,6 +163,20 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         {/* Menu drawer (URL-driven, opens with ?hall=<locationId>) */}
         <MenuDrawer locations={locations} />
       </main>
+    </div>
+  );
+}
+
+/**
+ * Home route component
+ * Displays hall cards in grid and menu drawer
+ */
+export default function Home({ loaderData }: Route.ComponentProps) {
+  const { locations } = loaderData as unknown as HomeLoaderData;
+
+  return (
+    <NuqsAdapter>
+      <HomeContent locations={locations} />
     </NuqsAdapter>
   );
 }

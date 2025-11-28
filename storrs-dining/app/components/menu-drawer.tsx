@@ -4,7 +4,7 @@ import { useFetcher } from "react-router";
 import { Drawer } from "vaul";
 import { X } from "lucide-react";
 import { cn } from "~/lib/utils";
-import type { LocationWithStatus } from "~/routes/home";
+import type { LocationWithStatus } from "~/lib/db/types";
 import type { MenuLoaderData } from "~/routes/api.menu.$locationId";
 
 export interface MenuDrawerProps {
