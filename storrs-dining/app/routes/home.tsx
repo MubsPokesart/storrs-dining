@@ -42,6 +42,7 @@ export async function loader({ context }: Route.LoaderArgs) {
         currentMealLabel: status.currentMealLabel,
         closesAt: status.closesAt,
         opensAt: status.opensAt,
+        closingSoon: status.closingSoon,
       };
     });
 

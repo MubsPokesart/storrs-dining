@@ -7,6 +7,7 @@ interface HoursStatus {
   closesAt: string | null;
   opensAt: string | null;
   nextMeal: MealPeriod | null;
+  closingSoon: boolean;
 }
 
 /**
@@ -56,6 +57,7 @@ export function getHoursStatus(locationId: string, now: Date = new Date()): Hour
       closesAt: null,
       opensAt: null,
       nextMeal: null,
+      closingSoon: false,
     };
   }
 
@@ -70,6 +72,7 @@ export function getHoursStatus(locationId: string, now: Date = new Date()): Hour
     const closeMinutes = toMinutes(meal.close);
 
     if (currentMinutes >= openMinutes && currentMinutes < closeMinutes) {
+      const minutesUntilClose = closeMinutes - currentMinutes;
       return {
         isOpen: true,
         currentMeal: meal.period,
@@ -77,6 +80,7 @@ export function getHoursStatus(locationId: string, now: Date = new Date()): Hour
         closesAt: formatTime12h(meal.close),
         opensAt: null,
         nextMeal: null,
+        closingSoon: minutesUntilClose <= 30,
       };
     }
   }
@@ -93,6 +97,7 @@ export function getHoursStatus(locationId: string, now: Date = new Date()): Hour
         closesAt: null,
         opensAt: formatTime12h(meal.open),
         nextMeal: meal.period,
+        closingSoon: false,
       };
     }
   }
@@ -106,6 +111,7 @@ export function getHoursStatus(locationId: string, now: Date = new Date()): Hour
     closesAt: null,
     opensAt: "tomorrow",
     nextMeal: null,
+    closingSoon: false,
   };
 }
 

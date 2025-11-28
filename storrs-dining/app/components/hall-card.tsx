@@ -35,7 +35,7 @@ export function HallCard({
   onCardClick,
   className,
 }: HallCardProps) {
-  const { isOpen, currentMeal, closesAt, opensAt } = location;
+  const { isOpen, currentMeal, closesAt, opensAt, closingSoon } = location;
 
   return (
     <article
@@ -136,7 +136,9 @@ export function HallCard({
             "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full",
             "text-sm font-medium font-body",
             "transition-colors duration-150",
-            isOpen
+            isOpen && closingSoon
+              ? "bg-[rgb(var(--color-status-warning-bg))] text-[rgb(var(--color-status-warning))]"
+              : isOpen
               ? "bg-[rgb(var(--color-status-open-bg))] text-[rgb(var(--color-status-open))]"
               : "bg-[rgb(var(--color-status-closed-bg))] text-[rgb(var(--color-status-closed))]"
           )}

@@ -8,8 +8,10 @@ export type MenuItem = InferSelectModel<typeof menuItems>;
 export type LocationWithStatus = Location & {
   isOpen: boolean;
   currentMeal: string | null;
+  currentMealLabel: string | null;
   closesAt: string | null;
   opensAt: string | null;
+  closingSoon: boolean;
 };
 
 export type MenuWithItems = Menu & {
