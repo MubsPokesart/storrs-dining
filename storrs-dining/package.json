@@ -12,7 +12,8 @@
 		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b",
 		"db:generate": "drizzle-kit generate",
 		"db:migrate": "wrangler d1 migrations apply dining-db",
-		"db:studio": "drizzle-kit studio"
+		"db:studio": "drizzle-kit studio",
+		"db:seed-locations": "wrangler d1 execute dining-db --file=scripts/seed-locations.sql"
 	},
 	"dependencies": {
 		"clsx": "^2.1.1",
