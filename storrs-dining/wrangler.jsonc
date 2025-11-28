@@ -12,6 +12,24 @@
 	},
 	"observability": {
 		"enabled": true
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "dining-db",
+			"database_id": "13e4dbae-da6a-4462-898b-7603621ac49c"
+		}
+	],
+	"env": {
+		"development": {
+			"d1_databases": [
+				{
+					"binding": "DB",
+					"database_name": "dining-db",
+					"database_id": "13e4dbae-da6a-4462-898b-7603621ac49c"
+				}
+			]
+		}
 	}
 	/**
 	 * Smart Placement
