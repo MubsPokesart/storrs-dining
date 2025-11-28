@@ -8,6 +8,9 @@ import { MenuDrawer } from "~/components/menu-drawer";
 import { Navbar } from "~/components/navbar";
 import { useEffect, useState } from "react";
 import { useQueryState } from "nuqs";
+import { Search } from "lucide-react";
+import { Input } from "~/components/ui/input";
+import { Badge } from "~/components/ui/badge";
 
 // Loader data type matching API-CONTRACTS.md
 export interface HomeLoaderData {
@@ -78,12 +81,17 @@ export function meta({}: Route.MetaArgs) {
 
 const STORAGE_KEY = "dining-storrs-favorites";
 
+const PLACEHOLDERS = ["Pizza", "Late Night", "Coffee", "Pasta", "Tacos"];
+
 /**
  * Inner component that uses nuqs hooks
  */
 function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
   const [hall, setHall] = useQueryState("hall");
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filter, setFilter] = useState<"all" | "open" | "favorites">("all");
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
   // Load favorites from localStorage on mount
   useEffect(() => {
@@ -96,6 +104,14 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
         // Invalid JSON, ignore
       }
     }
+  }, []);
+
+  // Rotate placeholder text
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPlaceholder((prev) => (prev + 1) % PLACEHOLDERS.length);
+    }, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   // Save favorites to localStorage whenever they change
@@ -119,6 +135,20 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
     setHall(locationId);
   };
 
+  // Filter locations based on search and filter
+  const filteredLocations = locations.filter((location) => {
+    const matchesSearch =
+      location.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (location.locationName?.toLowerCase() || "").includes(searchQuery.toLowerCase());
+
+    const matchesFilter =
+      filter === "all" ||
+      (filter === "open" && location.isOpen) ||
+      (filter === "favorites" && favorites.has(location.id));
+
+    return matchesSearch && matchesFilter;
+  });
+
   return (
     <div className="min-h-screen bg-[rgb(var(--color-bg-primary))]">
       {/* Navbar with theme toggle */}
@@ -128,18 +158,60 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
       <main>
         {/* Header */}
         <header className="pt-12 pb-8 px-6 text-center">
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-[rgb(var(--color-text-primary))] mb-2">
-            Dining at <span className="font-accent text-5xl md:text-6xl">Storrs</span>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-[rgb(var(--color-text-primary))] mb-2">
+            Dining at <span className="font-accent text-6xl md:text-7xl lg:text-8xl text-[rgb(var(--color-brand-primary))]">Storrs</span>
           </h1>
           <p className="font-body text-lg text-[rgb(var(--color-text-secondary))]">
             Explore the Dining Halls Across Storrs
           </p>
         </header>
 
+        {/* Search & Filters - Sticky */}
+        <div className="sticky top-16 z-10 bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur-sm border-b border-[rgb(var(--color-border-secondary))] pb-4 pt-4 px-6">
+          <div className="max-w-2xl mx-auto space-y-4">
+            {/* Search Bar */}
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[rgb(var(--color-text-tertiary))]" />
+              <Input
+                type="text"
+                placeholder={`Where can I find ${PLACEHOLDERS[currentPlaceholder]}...`}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-12 h-14 text-lg shadow-lg border-2 transition-all focus:shadow-xl font-body"
+              />
+            </div>
+
+            {/* Filter Pills */}
+            <div className="flex gap-2 justify-center">
+              <Badge
+                variant={filter === "all" ? "default" : "secondary"}
+                className="cursor-pointer px-6 py-2 text-sm font-body transition-all"
+                onClick={() => setFilter("all")}
+              >
+                All
+              </Badge>
+              <Badge
+                variant={filter === "open" ? "default" : "secondary"}
+                className="cursor-pointer px-6 py-2 text-sm font-body transition-all"
+                onClick={() => setFilter("open")}
+              >
+                Open Now
+              </Badge>
+              <Badge
+                variant={filter === "favorites" ? "default" : "secondary"}
+                className="cursor-pointer px-6 py-2 text-sm font-body transition-all"
+                onClick={() => setFilter("favorites")}
+              >
+                Favorites
+              </Badge>
+            </div>
+          </div>
+        </div>
+
         {/* Hall cards grid */}
         <section className="container mx-auto p-4">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {locations.map((location) => (
+            {filteredLocations.map((location) => (
               <HallCard
                 key={location.id}
                 location={location}
@@ -151,10 +223,10 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
           </div>
 
           {/* Empty state */}
-          {locations.length === 0 && (
+          {filteredLocations.length === 0 && (
             <div className="text-center py-12">
               <p className="font-body text-[rgb(var(--color-text-secondary))]">
-                No dining halls available at this time.
+                No dining halls found matching your search.
               </p>
             </div>
           )}

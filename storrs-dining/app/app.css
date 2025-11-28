@@ -256,6 +256,10 @@
    BASE STYLES
    ======================================== */
 
+html {
+  transition: background-color var(--transition-normal);
+}
+
 html,
 body {
   font-family: var(--font-body);
@@ -265,6 +269,7 @@ body {
   background: rgb(var(--color-bg-primary));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: color var(--transition-normal), background-color var(--transition-normal);
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
@@ -276,6 +281,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
   color: rgb(var(--color-text-primary));
+  transition: color var(--transition-normal);
 }
 
 @layer base {

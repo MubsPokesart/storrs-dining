@@ -125,8 +125,8 @@ export function HallCard({
         </p>
       )}
 
-      {/* Status Badge and Current Meal */}
-      <div className="flex items-center gap-3 mb-4 flex-wrap">
+      {/* Status Badge with Timing */}
+      <div className="mb-4">
         <span
           className={cn(
             "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full",
@@ -136,7 +136,9 @@ export function HallCard({
               ? "bg-[rgb(var(--color-status-open-bg))] text-[rgb(var(--color-status-open))]"
               : "bg-[rgb(var(--color-status-closed-bg))] text-[rgb(var(--color-status-closed))]"
           )}
-          aria-label={`${location.name} is ${isOpen ? "open" : "closed"}`}
+          aria-label={`${location.name} is ${isOpen ? "open" : "closed"}${
+            isOpen && closesAt ? ` until ${closesAt}` : ""
+          }${!isOpen && opensAt ? `, opens at ${opensAt}` : ""}`}
         >
           {/* Status indicator circle */}
           <span
@@ -148,30 +150,26 @@ export function HallCard({
             )}
             aria-hidden="true"
           />
-          {isOpen ? "Open" : "Closed"}
+          {isOpen ? (
+            <>
+              Open{closesAt && ` • Closes at ${closesAt}`}
+            </>
+          ) : (
+            <>
+              Closed{opensAt && ` • ${opensAt === "tomorrow" ? "Opens tomorrow" : `Opens at ${opensAt}`}`}
+            </>
+          )}
         </span>
+      </div>
 
-        {/* Current meal period (only when open) */}
-        {isOpen && currentMeal && (
+      {/* Current meal period (only when open) */}
+      {isOpen && currentMeal && (
+        <div className="mb-4">
           <span className="text-sm font-body text-[rgb(var(--color-text-secondary))]">
             Serving {currentMeal}
           </span>
-        )}
-      </div>
-
-      {/* Timing Information */}
-      <div className="min-h-[20px] mb-4">
-        {isOpen && closesAt && (
-          <p className="text-sm font-body text-[rgb(var(--color-text-secondary))]">
-            Closes at {closesAt}
-          </p>
-        )}
-        {!isOpen && opensAt && (
-          <p className="text-sm font-body text-[rgb(var(--color-text-secondary))]">
-            {opensAt === "tomorrow" ? "Opens tomorrow" : `Opens at ${opensAt}`}
-          </p>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* View Menu Link - Footer */}
       <div className="pt-4 border-t border-[rgb(var(--color-border-secondary))]">
