@@ -185,21 +185,21 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
             <div className="flex gap-2 justify-center">
               <Badge
                 variant={filter === "all" ? "default" : "secondary"}
-                className="cursor-pointer px-6 py-2 text-sm font-body transition-all"
+                className="cursor-pointer px-6 py-2 text-sm font-body"
                 onClick={() => setFilter("all")}
               >
                 All
               </Badge>
               <Badge
                 variant={filter === "open" ? "default" : "secondary"}
-                className="cursor-pointer px-6 py-2 text-sm font-body transition-all"
+                className="cursor-pointer px-6 py-2 text-sm font-body"
                 onClick={() => setFilter("open")}
               >
                 Open Now
               </Badge>
               <Badge
                 variant={filter === "favorites" ? "default" : "secondary"}
-                className="cursor-pointer px-6 py-2 text-sm font-body transition-all"
+                className="cursor-pointer px-6 py-2 text-sm font-body"
                 onClick={() => setFilter("favorites")}
               >
                 Favorites

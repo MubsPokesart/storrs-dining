@@ -162,6 +162,9 @@
   --color-text-secondary: 156 163 175;     /* Gray-400 */
   --color-text-tertiary: 107 114 128;      /* Gray-500 */
 
+  /* Use light blue variant in dark mode for better visibility */
+  --color-brand-primary: 130 177 255;      /* Light accent blue */
+
   --color-status-open-bg: 5 46 22;         /* Green-900 */
   --color-status-closed-bg: 31 41 55;      /* Gray-800 */
 
@@ -368,5 +371,14 @@ h1, h2, h3, h4, h5, h6 {
   .text-high-contrast {
     color: rgb(var(--color-text-primary));
     font-weight: var(--font-semibold);
+  }
+
+  /* Hall card title styling */
+  .hall-card-title {
+    color: rgb(var(--color-text-primary));
+  }
+
+  .group:hover .hall-card-title {
+    color: rgb(var(--color-brand-primary));
   }
 }

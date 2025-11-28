@@ -9,7 +9,7 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-[rgb(var(--color-border-secondary))] bg-[rgb(var(--color-bg-primary))]/95 backdrop-blur supports-[backdrop-filter]:bg-[rgb(var(--color-bg-primary))]/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <h2 className="font-display text-xl font-bold text-[rgb(var(--color-text-primary))]">
-          Dining at <span className="font-accent text-2xl">Storrs</span>
+          Dining at <span className="font-accent text-2xl text-[rgb(var(--color-brand-primary))]">Storrs</span>
         </h2>
 
         <Button

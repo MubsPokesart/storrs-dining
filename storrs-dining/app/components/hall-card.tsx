@@ -40,6 +40,8 @@ export function HallCard({
   return (
     <article
       className={cn(
+        // Group for hover effects
+        "group",
         // Base card styling - 1rem border radius, white background
         "relative rounded-2xl bg-[rgb(var(--color-bg-secondary))]",
         // Shadow with hover elevation
@@ -111,8 +113,10 @@ export function HallCard({
       {/* Hall Name - Display Font (Libre Baskerville) */}
       <h2
         className={cn(
-          "font-display text-xl font-bold text-[rgb(var(--color-text-primary))]",
-          "mb-1 pr-12" // Right padding to avoid star button overlap
+          "font-display text-xl font-bold",
+          "mb-1 pr-12", // Right padding to avoid star button overlap
+          "transition-colors duration-300",
+          "hall-card-title"
         )}
       >
         {location.name}
