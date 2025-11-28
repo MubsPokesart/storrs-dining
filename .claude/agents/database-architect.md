@@ -1,7 +1,7 @@
 ---
 name: database-architect
 description: Use PROACTIVELY for database schema, migrations, queries, and D1 operations
-tools: Bash, Read, Write
+tools: Bash, Read, Write, gemini
 model: sonnet
 ---
 
