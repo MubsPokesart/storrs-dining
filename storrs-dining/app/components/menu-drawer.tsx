@@ -1,13 +1,15 @@
+import { useEffect } from "react";
 import { useQueryState } from "nuqs";
+import { useFetcher } from "react-router";
 import { Drawer } from "vaul";
 import { X } from "lucide-react";
 import { cn } from "~/lib/utils";
-import type { Location, MenuWithItems } from "~/lib/db/types";
+import type { LocationWithStatus } from "~/routes/home";
+import type { MenuLoaderData } from "~/routes/api.menu.$locationId";
 
 export interface MenuDrawerProps {
-  // All state comes from URL via nuqs, but we accept pre-loaded data
-  locations?: Location[];
-  menus?: Record<string, MenuWithItems | null>;
+  // Locations with status from home loader
+  locations: LocationWithStatus[];
 }
 
 /**
@@ -22,15 +24,29 @@ export interface MenuDrawerProps {
  * <MenuDrawer locations={locations} menus={menusMap} />
  * ```
  */
-export function MenuDrawer({ locations = [], menus = {} }: MenuDrawerProps) {
+export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   // Read hall ID from URL query params
   const [hall, setHall] = useQueryState("hall");
+
+  // Use fetcher to load menu data from API route
+  const fetcher = useFetcher<MenuLoaderData>();
 
   const isOpen = !!hall;
 
   // Find the location data for the current hall
   const location = locations.find((loc) => loc.id === hall) || null;
-  const menu = hall ? menus[hall] || null : null;
+
+  // Fetch menu data when drawer opens
+  useEffect(() => {
+    if (hall && fetcher.state === "idle" && !fetcher.data) {
+      fetcher.load(`/api/menu/${hall}`);
+    }
+  }, [hall, fetcher]);
+
+  // Get menu data from fetcher
+  const menuData = fetcher.data;
+  const menu = menuData?.menu || null;
+  const isLoading = fetcher.state === "loading";
 
   const handleClose = () => {
     setHall(null);
@@ -150,33 +166,81 @@ export function MenuDrawer({ locations = [], menus = {} }: MenuDrawerProps) {
           {/* Scrollable content area */}
           <div className="flex-1 overflow-y-auto">
             <div className="px-4 py-6">
-              {/* Empty state - menu items will be added in Phase 5.4-5.6 */}
-              <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div
-                  className="text-6xl mb-4"
-                  role="img"
-                  aria-label="Menu icon"
-                >
-                  🍽️
+              {/* Loading state */}
+              {isLoading && (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <div
+                    className="text-6xl mb-4 animate-pulse"
+                    role="img"
+                    aria-label="Loading"
+                  >
+                    🍽️
+                  </div>
+                  <p
+                    className={cn(
+                      "font-body text-sm",
+                      "text-[rgb(var(--color-text-secondary))]"
+                    )}
+                  >
+                    Loading menu...
+                  </p>
                 </div>
-                <h3
-                  className={cn(
-                    "font-display text-xl font-semibold mb-2",
-                    "text-[rgb(var(--color-text-primary))]"
-                  )}
-                >
-                  Menu items will appear here
-                </h3>
-                <p
-                  className={cn(
-                    "font-body text-sm max-w-xs",
-                    "text-[rgb(var(--color-text-secondary))]"
-                  )}
-                >
-                  Station groups and menu items will be implemented in the next
-                  phase
-                </p>
-              </div>
+              )}
+
+              {/* No menu data state */}
+              {!isLoading && !menu && menuData && (
+                <div className="flex flex-col items-center justify-center py-12 text-center">
+                  <div
+                    className="text-6xl mb-4"
+                    role="img"
+                    aria-label="No menu"
+                  >
+                    📋
+                  </div>
+                  <h3
+                    className={cn(
+                      "font-display text-xl font-semibold mb-2",
+                      "text-[rgb(var(--color-text-primary))]"
+                    )}
+                  >
+                    No menu available
+                  </h3>
+                  <p
+                    className={cn(
+                      "font-body text-sm max-w-xs",
+                      "text-[rgb(var(--color-text-secondary))]"
+                    )}
+                  >
+                    Menu data hasn't been scraped yet for {menuData.mealPeriod}.
+                  </p>
+                </div>
+              )}
+
+              {/* Menu data available */}
+              {!isLoading && menu && (
+                <div>
+                  <p
+                    className={cn(
+                      "font-body text-sm mb-4",
+                      "text-[rgb(var(--color-text-secondary))]"
+                    )}
+                  >
+                    {menuData?.currentMealLabel || menuData?.mealPeriod} • {menuData?.date}
+                  </p>
+
+                  {/* TODO: Add MenuFilters, StationGroup, and MenuItem components here */}
+                  <div className="flex flex-col items-center justify-center py-8 text-center">
+                    <p
+                      className={cn(
+                        "font-body text-sm",
+                        "text-[rgb(var(--color-text-secondary))]"
+                      )}
+                    >
+                      {menu.items.length} items found. Menu display components coming in Phase 7.
+                    </p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
