@@ -3,18 +3,206 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+/* ========================================
+   DESIGN TOKENS - Dining at Storrs
+   From DESIGN-ETHOS.md
+   ======================================== */
+
+:root {
+  /* === BRAND === */
+  --color-brand-primary: 30 64 175;        /* #1E40AF - UConn Blue */
+  --color-brand-primary-light: 130 177 255; /* Light accent */
+  --color-brand-accent: 251 191 36;        /* Amber - favorites */
+
+  /* === BACKGROUNDS === */
+  --color-bg-primary: 247 247 244;         /* #F7F7F4 - Warm cream */
+  --color-bg-secondary: 255 255 255;       /* White - cards */
+  --color-bg-tertiary: 249 250 251;        /* Gray-50 - subtle sections */
+
+  /* === TEXT === */
+  --color-text-primary: 17 24 39;          /* Gray-900 - headings */
+  --color-text-secondary: 107 114 128;     /* Gray-500 - body */
+  --color-text-tertiary: 156 163 175;      /* Gray-400 - captions */
+  --color-text-inverse: 255 255 255;       /* White on dark */
+
+  /* === STATUS === */
+  --color-status-open: 22 163 74;          /* Green-600 */
+  --color-status-open-bg: 240 253 244;     /* Green-50 */
+  --color-status-closed: 107 114 128;      /* Gray-500 */
+  --color-status-closed-bg: 243 244 246;   /* Gray-100 */
+  --color-status-warning: 217 119 6;       /* Amber-600 - closing soon */
+  --color-status-warning-bg: 254 243 199;  /* Amber-100 */
+
+  /* === DIETARY BADGES === */
+  --color-dietary-vegan: 4 120 87;         /* Emerald-700 */
+  --color-dietary-vegan-bg: 236 253 245;   /* Emerald-50 */
+  --color-dietary-vegetarian: 5 150 105;   /* Emerald-600 */
+  --color-dietary-vegetarian-bg: 236 253 245;
+  --color-dietary-gf: 147 51 234;          /* Purple-600 */
+  --color-dietary-gf-bg: 250 245 255;      /* Purple-50 */
+
+  /* === INTERACTIVE === */
+  --color-interactive-hover: 243 244 246;  /* Gray-100 */
+  --color-interactive-focus: 30 64 175;    /* Brand blue ring */
+  --color-interactive-active: 29 78 216;   /* Blue-700 pressed */
+
+  /* === BORDERS === */
+  --color-border-primary: 229 231 235;     /* Gray-200 */
+  --color-border-secondary: 243 244 246;   /* Gray-100 */
+  --color-border-favorite: 252 211 77;     /* Amber-300 */
+
+  /* === OVERLAY === */
+  --color-overlay: 0 0 0;
+  --color-overlay-opacity: 0.6;
+
+  /* === TYPOGRAPHY === */
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  --font-accent: 'Great Vibes', cursive;
+
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* === SPACING === */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+
+  /* === SHADOWS === */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Semantic shadows */
+  --shadow-card: var(--shadow-sm);
+  --shadow-card-hover: var(--shadow-lg);
+  --shadow-drawer: var(--shadow-xl);
+
+  /* === ANIMATIONS === */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --transition-fast: var(--duration-fast) var(--ease-out);
+  --transition-normal: var(--duration-normal) var(--ease-out);
+
+  /* === RADIUS === */
+  --radius: 0.625rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* === SHADCN COMPATIBILITY === */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+/* === DARK MODE === */
+.dark {
+  --color-bg-primary: 20 18 11;            /* Espresso */
+  --color-bg-secondary: 31 29 22;          /* Dark card */
+  --color-bg-tertiary: 17 24 39;           /* Gray-900 */
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  --color-text-primary: 243 244 246;       /* Gray-100 */
+  --color-text-secondary: 156 163 175;     /* Gray-400 */
+  --color-text-tertiary: 107 114 128;      /* Gray-500 */
+
+  --color-status-open-bg: 5 46 22;         /* Green-900 */
+  --color-status-closed-bg: 31 41 55;      /* Gray-800 */
+
+  --color-border-primary: 55 65 81;        /* Gray-700 */
+  --color-border-secondary: 31 41 55;      /* Gray-800 */
+
+  --shadow-card: none;
+  --shadow-card-hover: 0 0 0 1px rgb(255 255 255 / 0.1);
+
+  /* shadcn dark mode */
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @theme inline {
@@ -55,73 +243,39 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+@theme {
+  /* Add custom font families to Tailwind theme */
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+  --font-accent: 'Great Vibes', cursive;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+html,
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: var(--leading-normal);
+  color: rgb(var(--color-text-primary));
+  background: rgb(var(--color-bg-primary));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: rgb(var(--color-text-primary));
 }
 
 @layer base {
@@ -133,8 +287,49 @@ body {
   }
 }
 
-/* Hide scrollbar utility for horizontal scroll containers */
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--color-bg-tertiary)) 0%,
+    rgb(var(--color-bg-secondary)) 50%,
+    rgb(var(--color-bg-tertiary)) 100%
+  );
+  background-size: 200% 100%;
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
 @layer utilities {
+  /* Hide scrollbar for horizontal scroll containers */
   .scrollbar-hide {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
@@ -142,5 +337,30 @@ body {
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
+  }
+
+  /* Font families */
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-accent {
+    font-family: var(--font-accent);
+  }
+
+  /* Touch-friendly minimum sizes */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* High contrast text for outdoor readability */
+  .text-high-contrast {
+    color: rgb(var(--color-text-primary));
+    font-weight: var(--font-semibold);
   }
 }
