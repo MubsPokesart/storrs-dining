@@ -173,9 +173,9 @@ def get_menu(location_key, location_data, month, day, year):
 
 def main():
     now = datetime.now()
-    month = 12
-    day = 2
-    year = 2025
+    month = now.month
+    day = now.day   
+    year = now.year
     
     all_menus = []
     

@@ -2,11 +2,855 @@
   "date": "2025-11-29",
   "menus": [
     {
-      "location_id": "south",
+      "location_id": "connecticut",
       "meal_period": "Breakfast",
       "items": [
         {
-          "name": "Belgian Waffle",
+          "name": "Buttered Croissant",
+          "station": "HOMESTYLE CLASSICS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chorizo Sausage Patties",
+          "station": "HOMESTYLE CLASSICS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Fried Eggs",
+          "station": "HOMESTYLE CLASSICS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Bacon",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baked Tater Tots",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Buttermilk Pancakes",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Cheesy Scrambled Eggs",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Hard Boiled Eggs",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Pancake & Waffle Syrup",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Plant-Based Breakfast Sausage",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Scrambled Eggs",
+          "station": "WORLD FARE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "DESSERTS",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "connecticut",
+      "meal_period": "Lunch",
+      "items": [
+        {
+          "name": "Chef's Choice Soup du Jour",
+          "station": "SOUPS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese Bar",
+          "station": "HOMESTYLE CLASSICS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grain Bar",
+          "station": "FRESH FUSION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Smoked Tofu",
+          "station": "FRESH FUSION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Bow Tie Pasta",
+          "station": "FEAST",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "FEAST",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Wood Grilled Cheese Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Wood Grilled Pepperoni Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Baked Albanian Chicken Wings",
+          "station": "WORLD FARE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Buffalo Wings",
+          "station": "WORLD FARE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chicken Wings",
+          "station": "WORLD FARE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Fiesta Rice",
+          "station": "WORLD FARE",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Mexican Beef Lasagna",
+          "station": "WORLD FARE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Sauteed Mexican Street Corn",
+          "station": "WORLD FARE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Lemon Bars",
+          "station": "DESSERTS",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "M & M Cookies",
+          "station": "DESSERTS",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beer Battered Onion Rings",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Hot Dogs",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Hot Dog Roll N. England",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Meatless Sloppy Joes",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Sloppy Joes on a Bun",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "connecticut",
+      "meal_period": "Dinner",
+      "items": [
+        {
+          "name": "Beef Pho",
+          "station": "FRESH FUSION",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Vietnamese Pho & Noodle Bar",
+          "station": "FRESH FUSION",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Mac & Cheese Bar",
+          "station": "FEAST",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "FEAST",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Penne Pasta",
+          "station": "FEAST",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Wood Grilled Cheese Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Wood Grilled Pepperoni Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef and Broccoli Stir Fry",
+          "station": "WORLD FARE",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Garlic Fried Rice (Sinangag)",
+          "station": "WORLD FARE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Mini Vegetable Egg Rolls",
+          "station": "WORLD FARE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Teriyaki Swordfish",
+          "station": "WORLD FARE",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Assorted Strudel Bites",
+          "station": "DESSERTS",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Peach Pie",
+          "station": "DESSERTS",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Burger w/ Bun",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beer Battered Onion Rings",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "SIZZLE AND SERVE",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        }
+      ]
+    },
+    {
+      "location_id": "mcmahon",
+      "meal_period": "Breakfast",
+      "items": [
+        {
+          "name": "Chocolate Chip Pancakes",
+          "station": "BREAKFAST ENTREE'S",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Fried Tater Tots",
+          "station": "BREAKFAST ENTREE'S",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Hard Boiled Eggs",
+          "station": "BREAKFAST ENTREE'S",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Oatmeal Hot Cereal",
+          "station": "BREAKFAST ENTREE'S",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pork Sausage Links",
+          "station": "BREAKFAST ENTREE'S",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Scrambled Eggs",
+          "station": "BREAKFAST ENTREE'S",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "DESSERTS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "mcmahon",
+      "meal_period": "Lunch",
+      "items": [
+        {
+          "name": "Buffalo Cauliflower with Carrot Salad",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cornmeal Crusted Chicken",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pork Tocino With Garlic Fried Rice",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sofrito Chicken",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chef's Choice Soup du Jour",
+          "station": "SOUPS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Black Beans In Sofrito",
+          "station": "TANDOORI STATION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Corn With Lime Butter",
+          "station": "TANDOORI STATION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Roasted Sofrito Chicken",
+          "station": "TANDOORI STATION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Buffalo Bleu Cheese Dressing",
+          "station": "GRILL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Vegetables",
+          "station": "GRILL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Masa Crusted Chicken",
+          "station": "GRILL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Garlic Fried Rice (Sinangag)",
+          "station": "WOK STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Pork Tocino",
+          "station": "WOK STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Buffalo Cauliflower",
+          "station": "SAUTE STATION",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Carrot And Arugula Salad",
+          "station": "SAUTE STATION",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cheese Pizza",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Gemelli",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Veggie Combo Pizza",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chocolate Brownies",
+          "station": "DESSERTS",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "M & M Cookies",
+          "station": "DESSERTS",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "mcmahon",
+      "meal_period": "Dinner",
+      "items": [
+        {
+          "name": "Chicken Paprikash",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "French Onion Grilled Cheese With Roasted Root Salad",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pierogies And Kielbasa",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Teriyaki Chicken With Sesame Cabbage Salad",
+          "station": "PLATE ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chef's Choice Soup du Jour",
+          "station": "SOUPS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chicken Paprikash",
+          "station": "TANDOORI STATION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "White Rice",
+          "station": "TANDOORI STATION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "French Onion Grilled Cheese",
+          "station": "GRILL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Roasted Root Salad With Horseradish Honey Mustard",
+          "station": "GRILL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sesame Cabbage Salad",
+          "station": "WOK STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sushi Rice",
+          "station": "WOK STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Teriyaki Chicken",
+          "station": "WOK STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Fried Cabbage",
+          "station": "SAUTE STATION",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Kielbasa",
+          "station": "SAUTE STATION",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Potato & Cheese Pierogi",
+          "station": "SAUTE STATION",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Cheese Pizza",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Gemelli",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Veggie Combo Pizza",
+          "station": "PIZZA",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Peach Pie",
+          "station": "DESSERTS",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "north",
+      "meal_period": "Breakfast",
+      "items": [
+        {
+          "name": "Biscuits",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Buttermilk Pancakes",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Buttermilk Waffles",
           "station": "BREAKFAST ENTREES",
           "station_order": 1,
           "is_vegan": false,
@@ -38,6 +882,1764 @@
           "is_gluten_free": false
         },
         {
+          "name": "Louisiana Style Sausage Gravy",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Oatmeal Hot Cereal",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pork Sausage Patties",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Scrambled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Strawberry Topping",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "BREAKFAST BAKERY",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Sticky Rice",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Omelet Bar",
+          "station": "ACTION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "north",
+      "meal_period": "Lunch",
+      "items": [
+        {
+          "name": "Bourbon Brown Sugar Salmon",
+          "station": "SMART CHECK ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "BBQ Chicken Drumsticks",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baked Sesame Nuggets",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chef's Choice Soup du Jour",
+          "station": "SOUPS",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Tomato Soup",
+          "station": "SOUPS",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Basmati Rice Pilaf",
+          "station": "SIDES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Pesto Cream Sauce",
+          "station": "SIDES",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Roasted Brussel Sprouts",
+          "station": "SIDES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sticky Rice",
+          "station": "SIDES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Vegetable Medley",
+          "station": "SIDES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Beef Burger No Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cheese Sauce",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Crinkle Cut Fries",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Hot Dogs",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Plant Forward Quesadillas",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Tomato Soup",
+          "station": "GRILL ITEMS",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese Bar",
+          "station": "ACTION",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Potato Chips",
+          "station": "ACTION",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chef's Choice Pasta Du Jour",
+          "station": "COMFORT LINE",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "COMFORT LINE",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cheese Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pepperoni Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Special Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Lemon Bars",
+          "station": "DESSERTS",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "M & M Cookies",
+          "station": "DESSERTS",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "north",
+      "meal_period": "Dinner",
+      "items": [
+        {
+          "name": "Fish of the Day w/ Shrimp Scampi Butter",
+          "station": "SMART CHECK ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Kielbasa",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Outback Chicken with Apple Smoked Bacon",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Fried Cabbage",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Meat Sauce",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Parslied Carrots",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Potato & Cheese Pierogi",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Sticky Rice",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Vegan Sausage w/ Peppers & Onions",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Brown Sugar Mustard Glaze",
+          "station": "SAUCES & GRAVIES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Husky Rolls",
+          "station": "BAKERY",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Burger No Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cheese Sauce",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Crinkle Cut Fries",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Hot Dogs",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Plant Forward Quesadillas",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Tomato Soup",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Taco Bar",
+          "station": "ACTION",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chef's Choice Pasta Du Jour",
+          "station": "COMFORT LINE",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "COMFORT LINE",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cheese Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pepperoni Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Special Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Peach Pie",
+          "station": "DESSERTS",
+          "station_order": 10,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "northwest",
+      "meal_period": "Breakfast",
+      "items": [
+        {
+          "name": "Chefs Omelet Du Jour",
+          "station": "GRILL ITEMS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Fried Eggs",
+          "station": "GRILL ITEMS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Bacon",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Breakfast Potatoes",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "French Toast",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Hard Boiled Eggs",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Scrambled Eggs",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Scrambled Tofu",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shakshuka",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "DESSERTS",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "northwest",
+      "meal_period": "Lunch",
+      "items": [
+        {
+          "name": "Beef Cheeseburger w/ Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Crinkle Cut Fries",
+          "station": "GRILL ITEMS",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese",
+          "station": "GRILL ITEMS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Malibu Veggie Burger w/ Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Baked Boneless Wings",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Fried Boneless Wings",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Harvest Vegetable Stir-fry",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Homemade Teriyaki Sauce",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Jasmine Rice",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Nashville Hot Sauce",
+          "station": "COMFORT LINE",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cavatappi",
+          "station": "PASTA STATION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Fresh Steamed Spinach",
+          "station": "PASTA STATION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Garlic Quinoa",
+          "station": "PASTA STATION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shrimp Mozambique",
+          "station": "PASTA STATION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Turkish Chickpeas",
+          "station": "PASTA STATION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        }
+      ]
+    },
+    {
+      "location_id": "northwest",
+      "meal_period": "Dinner",
+      "items": [
+        {
+          "name": "French Onion Soup",
+          "station": "SOUPS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "English Pub Fish",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Burnt End Brisket Sausage",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Three Cheese",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Wedge Fries w/ Skin",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Classic Chicken Gravy",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Fresh Garden Medley",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Orzo with Feta & Sundried Tomatoes",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Protein Packed Pot Pie",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Roasted Garlic Chicken",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Roasted Garlic Mashed Gold Potatoes",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Roasted Spaghetti Squash",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cavatappi",
+          "station": "PASTA STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Garlic & Herb Dipping Oil",
+          "station": "PASTA STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Italian Bread",
+          "station": "PASTA STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Mixed Vegetables",
+          "station": "PASTA STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Quinoa and Rice Pilaf",
+          "station": "PASTA STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Ricotta Cheese Stuffed Shells",
+          "station": "PASTA STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "putnam",
+      "meal_period": "Breakfast",
+      "items": [
+        {
+          "name": "Bacon",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baked French Toast Stix",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Cheesy Scrambled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Hard Boiled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Oatmeal Hot Cereal",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Overnight Oats",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Plant-Based Breakfast Sausage",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Scrambled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Skin-on Home Fries",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Sticky Rice",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "DESSERTS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "putnam",
+      "meal_period": "Lunch",
+      "items": [
+        {
+          "name": "Chicken Noodle Soup",
+          "station": "SOUPS",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Burger w/ Bun",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Black Bean Burger With Guacamole",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Hot Dogs w/ Toasted Roll",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Shoestring Fries",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Ginger Sesame Tuna Steaks",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Huli Huli Chicken",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Kale & Spinach Dumpling",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Mongolian Steak Stir Fry",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pineapple Fried Rice",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Roasted Summer Vegetables",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sauteed Napa Cabbage",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sticky Rice",
+          "station": "COMFORT LINE",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baby Kale",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Bacon Crumbles",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Balsamic Roasted Red Onion",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Caesar Salad Bar",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chicken Strips",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Creamy Caesar Dressing",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Diced Tofu",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grape Tomato",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Multigrain Croutons",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Plant Based Mozzarella",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Romaine Lettuce",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shredded Parmesan",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shrimp",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sunflower Seeds",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Thinly Sliced Cucumber",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Alfredo Sauce",
+          "station": "PASTA STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "PASTA STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Ziti in Meat Sauce",
+          "station": "PASTA STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Wood Grilled Cheese Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "putnam",
+      "meal_period": "Dinner",
+      "items": [
+        {
+          "name": "Classic Italian Combo",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Garden Side Salad",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Gluten Free Turkey and Cheese Sandwich",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Large Chocolate Chip Cookie",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Side Salad with Grilled Chicken Strips",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Turkey and Swiss Croissant",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Vegan Buffalo \"Chicken\" Wrap",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Wrapped Brownie",
+          "station": "GRAB & GO",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Burger w/ Bun",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Black Bean Burger With Guacamole",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Cheese",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Hot Dogs w/ Toasted Roll",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Shoestring Fries",
+          "station": "GRILL DOWNSTAIRS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "10\" Flour Tortilla",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Bacon Crumbles",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Beef Taco Filling",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Black Beans",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Broccoli Cuts",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Diced Spanish Onion",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Diced Tomato",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Flame Roasted Corn & Peppers",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Guacamole",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Jalapenos",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Pico de Gallo",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Quesadilla Bar",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Refried Beans",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Roasted Chicken",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Salsa",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shredded Cheddar Jack Cheese",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sliced Black Olives",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sour Cream",
+          "station": "ACTION",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baked Sesame Nuggets",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Basmati Rice Pilaf",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Husky Rolls",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Outback Chicken with Apple Smoked Bacon",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Parsley Buttered Egg Noodles",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Roasted Cauliflower",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sauteed Spinach With Garlic",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sticky Rice",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Swedish Meatballs",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baby Kale",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Bacon Crumbles",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Balsamic Roasted Red Onion",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Caesar Salad Bar",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Chicken Strips",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Creamy Caesar Dressing",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Diced Tofu",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grape Tomato",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Multigrain Croutons",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Plant Based Mozzarella",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Romaine Lettuce",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shredded Parmesan",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shrimp",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sunflower Seeds",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Thinly Sliced Cucumber",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "PASTA STATION",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Vodka Sauce",
+          "station": "PASTA STATION",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Wood Grilled Cheese Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "south",
+      "meal_period": "Breakfast",
+      "items": [
+        {
+          "name": "Bacon",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cheesy Scrambled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "French Toast",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Fried Tater Tots",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Hard Boiled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
           "name": "Oatmeal Hot Cereal",
           "station": "BREAKFAST ENTREES",
           "station_order": 1,
@@ -54,20 +2656,20 @@
           "is_gluten_free": true
         },
         {
-          "name": "Pork Sausage Links",
-          "station": "BREAKFAST ENTREES",
-          "station_order": 1,
-          "is_vegan": false,
-          "is_vegetarian": false,
-          "is_gluten_free": true
-        },
-        {
           "name": "Scrambled Eggs",
           "station": "BREAKFAST ENTREES",
           "station_order": 1,
           "is_vegan": false,
           "is_vegetarian": true,
           "is_gluten_free": true
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "BREAKFAST BAKERY",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
         }
       ]
     },
@@ -84,55 +2686,63 @@
           "is_gluten_free": false
         },
         {
-          "name": "Oatmeal Hot Cereal",
-          "station": "SOUPS",
-          "station_order": 1,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": false
-        },
-        {
-          "name": "Egg Sandwich Bar",
+          "name": "Beef Burger No Bun",
           "station": "GRILL ITEMS",
           "station_order": 2,
           "is_vegan": false,
           "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Beyond Burger",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Curly Fries",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
           "is_gluten_free": false
         },
         {
-          "name": "Halal BBQ Chicken",
-          "station": "HALAL",
-          "station_order": 3,
+          "name": "Grilled Cheese",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
           "is_vegan": false,
           "is_vegetarian": false,
           "is_gluten_free": true
         },
         {
-          "name": "Halal Baked Beans",
-          "station": "HALAL",
-          "station_order": 3,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": true
-        },
-        {
-          "name": "Seasoned White Rice",
-          "station": "HALAL",
-          "station_order": 3,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": true
-        },
-        {
-          "name": "Belgian Waffle",
-          "station": "COMFORT LINE",
-          "station_order": 4,
+          "name": "Grilled Hot Dogs",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
           "is_vegan": false,
-          "is_vegetarian": true,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Halal Chicken Gyro",
+          "station": "HALAL",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
           "is_gluten_free": false
         },
         {
-          "name": "Cheesy Scrambled Eggs",
+          "name": "Baby Carrots w/ Tarragon Butter",
           "station": "COMFORT LINE",
           "station_order": 4,
           "is_vegan": false,
@@ -140,31 +2750,23 @@
           "is_gluten_free": true
         },
         {
-          "name": "Hard Boiled Eggs",
+          "name": "Baked Chicken Fillet Sandwich",
           "station": "COMFORT LINE",
           "station_order": 4,
           "is_vegan": false,
-          "is_vegetarian": true,
-          "is_gluten_free": true
-        },
-        {
-          "name": "Home Fries",
-          "station": "COMFORT LINE",
-          "station_order": 4,
-          "is_vegan": true,
-          "is_vegetarian": true,
+          "is_vegetarian": false,
           "is_gluten_free": false
         },
         {
-          "name": "Plant-Based Breakfast Sausage",
+          "name": "Brown Chicken Gravy",
           "station": "COMFORT LINE",
           "station_order": 4,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": true
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
         },
         {
-          "name": "Pork Sausage Links",
+          "name": "Grilled Tuna Steak w/ Sriracha Aioli",
           "station": "COMFORT LINE",
           "station_order": 4,
           "is_vegan": false,
@@ -172,15 +2774,47 @@
           "is_gluten_free": true
         },
         {
-          "name": "Scrambled Eggs",
+          "name": "Hamburger Roll",
           "station": "COMFORT LINE",
           "station_order": 4,
-          "is_vegan": false,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Protein Packed Cutlet on a Roll",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Roasted Potatoes w/ Rosemary",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
           "is_vegetarian": true,
           "is_gluten_free": true
         },
         {
-          "name": "Bagel Bar",
+          "name": "Sauteed Spinach With Garlic",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Beef For Udon",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chefs Choice Lo Mein",
           "station": "INTERNATIONAL STATION",
           "station_order": 5,
           "is_vegan": false,
@@ -188,12 +2822,36 @@
           "is_gluten_free": false
         },
         {
+          "name": "Fresh Vegetable and Tofu Stir Fry",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "White Rice",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
           "name": "Marinara Sauce",
-          "station": "PASTA STATION",
+          "station": "OPTIONS",
           "station_order": 6,
           "is_vegan": true,
           "is_vegetarian": true,
           "is_gluten_free": true
+        },
+        {
+          "name": "Penne & Sausage Abruzzi",
+          "station": "OPTIONS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
         },
         {
           "name": "Cheese Pizza",
@@ -220,7 +2878,7 @@
           "is_gluten_free": false
         },
         {
-          "name": "Chocolate Chip Cookie",
+          "name": "Lemon Bars",
           "station": "DESSERTS",
           "station_order": 8,
           "is_vegan": false,
@@ -228,7 +2886,7 @@
           "is_gluten_free": false
         },
         {
-          "name": "Lemon Blueberry Bread",
+          "name": "M & M Cookies",
           "station": "DESSERTS",
           "station_order": 8,
           "is_vegan": false,
@@ -258,6 +2916,22 @@
           "is_gluten_free": true
         },
         {
+          "name": "Beyond Burger",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Curly Fries",
+          "station": "GRILL ITEMS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
           "name": "Grilled Cheese",
           "station": "GRILL ITEMS",
           "station_order": 2,
@@ -282,39 +2956,31 @@
           "is_gluten_free": true
         },
         {
-          "name": "Malibu Veggie Burger w/ Bun",
-          "station": "GRILL ITEMS",
-          "station_order": 2,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": false
-        },
-        {
-          "name": "Sweet Potato Fries",
-          "station": "GRILL ITEMS",
-          "station_order": 2,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": false
-        },
-        {
-          "name": "Halal Biscuits",
+          "name": "Mashed Red Potatoes with Garlic",
           "station": "HALAL",
           "station_order": 3,
           "is_vegan": false,
           "is_vegetarian": true,
-          "is_gluten_free": false
+          "is_gluten_free": true
         },
         {
-          "name": "Hearty Beef Stew",
+          "name": "Roasted Garlic Chicken",
           "station": "HALAL",
           "station_order": 3,
           "is_vegan": false,
           "is_vegetarian": false,
-          "is_gluten_free": false
+          "is_gluten_free": true
         },
         {
-          "name": "Baked Plantains",
+          "name": "Steamed Broccoli",
+          "station": "HALAL",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "5 Grain Blend",
           "station": "COMFORT LINE",
           "station_order": 4,
           "is_vegan": true,
@@ -322,7 +2988,7 @@
           "is_gluten_free": true
         },
         {
-          "name": "Blazin Red Fish",
+          "name": "Bang Bang Shrimp",
           "station": "COMFORT LINE",
           "station_order": 4,
           "is_vegan": false,
@@ -330,74 +2996,1014 @@
           "is_gluten_free": false
         },
         {
-          "name": "Green Beans",
+          "name": "Buttered Egg Noodles",
           "station": "COMFORT LINE",
           "station_order": 4,
-          "is_vegan": true,
+          "is_vegan": false,
           "is_vegetarian": true,
-          "is_gluten_free": true
+          "is_gluten_free": false
         },
         {
-          "name": "Jamaican Beef Patty",
+          "name": "Herb Roasted Chicken",
           "station": "COMFORT LINE",
           "station_order": 4,
           "is_vegan": false,
           "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sauteed Spinach With Garlic",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Summer Squash",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Swedish Meatballs",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Swedish Vegeballs",
+          "station": "COMFORT LINE",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
           "is_gluten_free": false
         },
         {
-          "name": "Mediterranean Chick Peas and Tomatoes",
-          "station": "COMFORT LINE",
-          "station_order": 4,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": true
-        },
-        {
-          "name": "Yellow Rice w/ Pinto Beans",
-          "station": "COMFORT LINE",
-          "station_order": 4,
-          "is_vegan": true,
-          "is_vegetarian": true,
-          "is_gluten_free": true
-        },
-        {
-          "name": "Grilled Teriyaki Chicken",
+          "name": "Bacon Crumbles",
           "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baked Sesame Nuggets",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Jalapenos",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Macaroni & Cheese",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Roasted Chicken",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Steamed Broccoli",
+          "station": "INTERNATIONAL STATION",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "OPTIONS",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Peach Pie",
+          "station": "DESSERTS",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "towers",
+      "meal_period": "Breakfast",
+      "items": [
+        {
+          "name": "Cheesy Scrambled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "French Toast",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Hard Boiled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "McHusky Breakfast Sandwich",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Oat Milk Pancakes",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Overnight Oats",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Scrambled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Breakfast Potatoes",
+          "station": "SIDES",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chorizo Sausage Patties",
+          "station": "SIDES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Plant-Based Breakfast Sausage",
+          "station": "SIDES",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "BAKERY",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Assorted Muffins",
+          "station": "KOSHER",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Breakfast Potatoes",
+          "station": "KOSHER",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Eggwhite Omelet",
+          "station": "KOSHER",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Kosher Egg & Cheese Breakfast Sandwich",
+          "station": "KOSHER",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Oatmeal Cereal",
+          "station": "KOSHER",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Omelet Bar",
+          "station": "ACTION",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "towers",
+      "meal_period": "Lunch",
+      "items": [
+        {
+          "name": "Fried Brown Rice with Tofu & Vegetables",
+          "station": "SMART CHECK ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "SMART CHECK ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "General Tso's Chicken",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Korean Pork Loin",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Spring Vegetable Lo Mein",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Sausage & Lentil Soup",
+          "station": "SOUPS",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chili & Cheese Dog",
+          "station": "SANDWICHES",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Basmati Rice",
+          "station": "SIDES",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Cheese",
+          "station": "SIDES",
+          "station_order": 5,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Mini Vegetable Egg Rolls",
+          "station": "SIDES",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Sesame Snow Peas",
+          "station": "SIDES",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Steamed Broccoli",
+          "station": "SIDES",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "SAUCES & GRAVIES",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Lemon Bars",
+          "station": "BAKERY",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "M & M Cookies",
+          "station": "BAKERY",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Burger w/ Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Cheeseburger No Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shoestring Fries",
+          "station": "GRILL ITEMS",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "South Western Malibu Veggie Burger",
+          "station": "GRILL ITEMS",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Italian Squash",
+          "station": "KOSHER",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Panini Pizza",
+          "station": "KOSHER",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Portabella & Mozzarella Panini",
+          "station": "KOSHER",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Soup Cream of Tomato",
+          "station": "KOSHER",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Omelet Bar",
+          "station": "ACTION",
+          "station_order": 10,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Grilled Chicken Caprese Grinder",
+          "station": "HALAL",
+          "station_order": 11,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Pepperoni Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 12,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Special Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 12,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "towers",
+      "meal_period": "Dinner",
+      "items": [
+        {
+          "name": "Chickpea Pasta With Roasted Vegetables and White Beans",
+          "station": "SMART CHECK ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Alabama BBQ Chicken",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cider Braised Brats",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Baked Beans",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cheddar Beer Cheese",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Honey Roasted Carrots & Apples",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Ranch Roasted Potatoes",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sauteed Kale with Garlic",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Soft Pretzel",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Spaetzle",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Marinara Sauce",
+          "station": "SAUCES & GRAVIES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Peach Pie",
+          "station": "BAKERY",
+          "station_order": 5,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Burger w/ Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Beef Cheeseburger No Bun",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Chicken Breast",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Grilled Hot Dogs",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Shoestring Fries",
+          "station": "GRILL ITEMS",
+          "station_order": 6,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Baby Carrots",
+          "station": "KOSHER",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chicken Vegetable Soup",
+          "station": "KOSHER",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Oven Roasted Potatoes",
+          "station": "KOSHER",
+          "station_order": 7,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Yankee Pot Roast",
+          "station": "KOSHER",
+          "station_order": 7,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Bacon, Egg & Cheese Bagel",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Classic Italian Combo",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Garden Side Salad",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Gluten Free Turkey and Cheese Sandwich",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Large Chocolate Chip Cookie",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Side Salad with Grilled Chicken Strips",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Turkey and Swiss Croissant",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Vegan Buffalo \"Chicken\" Wrap",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Wrapped Brownie",
+          "station": "GRAB & GO",
+          "station_order": 8,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Mac & Cheese Bar",
+          "station": "ACTION",
+          "station_order": 9,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Halal Buttermilk Pancakes",
+          "station": "HALAL",
+          "station_order": 10,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Halal Chicken Sausage Links",
+          "station": "HALAL",
+          "station_order": 10,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Halal Scrambled Eggs",
+          "station": "HALAL",
+          "station_order": 10,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Pepperoni Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 11,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Special Pizza",
+          "station": "PIZZA STATION",
+          "station_order": 11,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "whitney",
+      "meal_period": "Breakfast",
+      "items": [
+        {
+          "name": "Bacon",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Buttermilk Pancakes",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Cage Free Boiled Eggs",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Country Style Hash Browns",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Omelet Bar",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Plant Based Pancakes",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Scrambled Eggs with American Cheese",
+          "station": "BREAKFAST ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Oatmeal Hot Cereal",
+          "station": "OPTIONS",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Cranberry Orange Bread",
+          "station": "DESSERTS",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "whitney",
+      "meal_period": "Lunch",
+      "items": [
+        {
+          "name": "Korean BBQ Chicken",
+          "station": "SMART CHECK ENTREES",
+          "station_order": 1,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "\"BLT\" Panini",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Imperial Shrimp & Vegetables",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Meaty Shitake \"Beef\" and Broccoli Stir Fry",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Chef's Choice Soup du Jour",
+          "station": "SOUPS",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Savory French Onion Soup",
+          "station": "SOUPS",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Cauliflower Fried Rice",
+          "station": "SIDES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Sesame Green Beans",
+          "station": "SIDES",
+          "station_order": 4,
+          "is_vegan": true,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Pasta Bar",
+          "station": "ACTION",
           "station_order": 5,
           "is_vegan": false,
           "is_vegetarian": false,
           "is_gluten_free": false
         },
         {
-          "name": "BBQ Sauce",
-          "station": "OPTIONS",
+          "name": "Lemon Bars",
+          "station": "DESSERTS",
           "station_order": 6,
-          "is_vegan": true,
+          "is_vegan": false,
           "is_vegetarian": true,
-          "is_gluten_free": true
+          "is_gluten_free": false
         },
         {
-          "name": "Pulled Pork",
-          "station": "OPTIONS",
+          "name": "M & M Cookies",
+          "station": "DESSERTS",
           "station_order": 6,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": false
+        }
+      ]
+    },
+    {
+      "location_id": "whitney",
+      "meal_period": "Dinner",
+      "items": [
+        {
+          "name": "Tuna Nicoise",
+          "station": "SMART CHECK ENTREES",
+          "station_order": 1,
           "is_vegan": false,
           "is_vegetarian": false,
           "is_gluten_free": true
         },
         {
-          "name": "Sidewinder Fries",
-          "station": "OPTIONS",
-          "station_order": 6,
+          "name": "Croque Monsieur",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "French Beef Bourguignon",
+          "station": "ENTREES",
+          "station_order": 2,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Rustic Spinach Mushroom Galette",
+          "station": "ENTREES",
+          "station_order": 2,
           "is_vegan": true,
           "is_vegetarian": true,
           "is_gluten_free": false
         },
         {
-          "name": "Confetti Cake",
-          "station": "DESSERTS",
-          "station_order": 7,
+          "name": "Homestyle Mashed Potatoes",
+          "station": "SIDES",
+          "station_order": 3,
           "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Roasted Ratatouille",
+          "station": "SIDES",
+          "station_order": 3,
+          "is_vegan": false,
+          "is_vegetarian": true,
+          "is_gluten_free": true
+        },
+        {
+          "name": "Pasta Bar",
+          "station": "ACTION",
+          "station_order": 4,
+          "is_vegan": false,
+          "is_vegetarian": false,
+          "is_gluten_free": false
+        },
+        {
+          "name": "Peach Pie",
+          "station": "DESSERTS",
+          "station_order": 5,
+          "is_vegan": true,
           "is_vegetarian": true,
           "is_gluten_free": false
         }
