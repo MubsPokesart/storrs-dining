@@ -6,14 +6,17 @@ import type { Location, MenuItem } from '~/lib/db/types';
 // Type for menu data returned from loader
 export interface MenuLoaderData {
   location: Location;
-  menu: {
-    id: number;
-    locationId: string;
-    date: string;
+  allMeals: {
     mealPeriod: string;
-    items: MenuItem[];
-  } | null;
-  mealPeriod: string;
+    menu: {
+      id: number;
+      locationId: string;
+      date: string;
+      mealPeriod: string;
+      items: MenuItem[];
+    } | null;
+  }[];
+  currentMealPeriod: string;
   date: string;
   isOpen: boolean;
   currentMealLabel: string | null;
@@ -50,19 +53,26 @@ export async function loader({ params, context }: LoaderFunctionArgs) {
     const status = getHoursStatus(locationId, now);
     const today = now.toISOString().split('T')[0];
 
-    // Determine which meal period to fetch
-    // If open, use current meal; if closed, default to lunch for preview
-    let mealPeriod = status.currentMeal || 'lunch';
+    // Determine which meal period to show by default
+    let currentMealPeriod = status.currentMeal || 'lunch';
 
-    // Fetch menu from database
-    let menu = await getMenuByLocationAndDate(db, locationId, today, mealPeriod);
+    // Fetch all meal periods for the day
+    const mealPeriods = ['breakfast', 'brunch', 'lunch', 'dinner', 'late_night'];
+    const allMeals = await Promise.all(
+      mealPeriods.map(async (period) => {
+        const menu = await getMenuByLocationAndDate(db, locationId, today, period);
+        return { mealPeriod: period, menu };
+      })
+    );
 
-    // Fallback: if brunch is not found, try lunch instead
-    // (some dining halls may not have separate brunch menus in the scraper data)
-    if (!menu && mealPeriod === 'brunch') {
-      menu = await getMenuByLocationAndDate(db, locationId, today, 'lunch');
-      if (menu) {
-        mealPeriod = 'lunch';
+    // Filter out meals with no data
+    const availableMeals = allMeals.filter(m => m.menu !== null);
+
+    // Fallback: if current meal (brunch) is not found, try lunch instead
+    if (currentMealPeriod === 'brunch' && !availableMeals.find(m => m.mealPeriod === 'brunch')) {
+      const lunchMeal = availableMeals.find(m => m.mealPeriod === 'lunch');
+      if (lunchMeal) {
+        currentMealPeriod = 'lunch';
       }
     }
 
@@ -70,8 +80,8 @@ export async function loader({ params, context }: LoaderFunctionArgs) {
     return Response.json(
       {
         location,
-        menu,
-        mealPeriod,
+        allMeals: availableMeals,
+        currentMealPeriod,
         date: today,
         isOpen: status.isOpen,
         currentMealLabel: status.currentMealLabel,

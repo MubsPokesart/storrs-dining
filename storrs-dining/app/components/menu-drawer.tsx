@@ -37,6 +37,9 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   // Dietary filter state
   const [activeFilters, setActiveFilters] = useState<Set<DietaryFilter>>(new Set());
 
+  // Active meal period tab state
+  const [activeMealPeriod, setActiveMealPeriod] = useState<string | null>(null);
+
   const isOpen = !!hall;
 
   // Find the location data for the current hall
@@ -54,7 +57,17 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   // Get menu data from fetcher - only use if it matches current hall
   const isDataForCurrentHall = fetcher.data?.location?.id === hall;
   const menuData = isDataForCurrentHall ? fetcher.data : null;
-  const menu = menuData?.menu || null;
+
+  // Set active meal period to current meal when data loads
+  useEffect(() => {
+    if (menuData && !activeMealPeriod) {
+      setActiveMealPeriod(menuData.currentMealPeriod);
+    }
+  }, [menuData, activeMealPeriod]);
+
+  // Get the currently selected meal
+  const selectedMealData = menuData?.allMeals?.find(m => m.mealPeriod === activeMealPeriod);
+  const menu = selectedMealData?.menu || null;
 
   // Show loading if fetcher is actively loading, OR if we're waiting for data to match current hall
   const isLoading = fetcher.state === "loading" || (hall && !isDataForCurrentHall);
@@ -97,6 +110,7 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   const handleClose = () => {
     setHall(null);
     setActiveFilters(new Set()); // Reset filters on close
+    setActiveMealPeriod(null); // Reset meal period on close
   };
 
   return (
@@ -235,7 +249,7 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
               )}
 
               {/* No menu data state */}
-              {!isLoading && !menu && menuData && (
+              {!isLoading && menuData && menuData.allMeals.length === 0 && (
                 <div className="flex flex-col items-center justify-center py-12 text-center">
                   <div
                     className="text-6xl mb-4"
@@ -258,29 +272,55 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
                       "text-[rgb(var(--color-text-secondary))]"
                     )}
                   >
-                    Menu data hasn't been scraped yet for {menuData.mealPeriod}.
+                    Menu data hasn't been scraped yet for today.
                   </p>
                 </div>
               )}
 
               {/* Menu data available */}
-              {!isLoading && menu && (
+              {!isLoading && menuData && menuData.allMeals.length > 0 && (
                 <div>
                   {/* Meal period and date info */}
                   <p
                     className={cn(
-                      "font-body text-sm mb-4 px-4",
+                      "font-body text-sm mb-3 px-4",
                       "text-[rgb(var(--color-text-secondary))]"
                     )}
                   >
-                    {menuData?.currentMealLabel || menuData?.mealPeriod} • {menuData?.date}
+                    {menuData?.currentMealLabel || activeMealPeriod} • {menuData?.date}
                   </p>
 
+                  {/* Meal period tabs */}
+                  {menuData.allMeals.length > 1 && (
+                    <div className="px-4 mb-3">
+                      <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+                        {menuData.allMeals.map(({ mealPeriod, menu: mealMenu }) => (
+                          <button
+                            key={mealPeriod}
+                            onClick={() => setActiveMealPeriod(mealPeriod)}
+                            className={cn(
+                              "px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors",
+                              "min-h-[44px]",
+                              activeMealPeriod === mealPeriod
+                                ? "bg-[rgb(var(--color-brand-primary))] text-[rgb(var(--color-text-inverse))]"
+                                : "bg-[rgb(var(--color-bg-tertiary))] text-[rgb(var(--color-text-secondary))] hover:bg-[rgb(var(--color-interactive-hover))]"
+                            )}
+                          >
+                            {mealPeriod.charAt(0).toUpperCase() + mealPeriod.slice(1).replace('_', ' ')}
+                            {mealMenu && ` (${mealMenu.items.length})`}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {/* Dietary filters - sticky at top */}
-                  <MenuFilters
-                    activeFilters={activeFilters}
-                    onFilterToggle={handleFilterToggle}
-                  />
+                  {menu && (
+                    <MenuFilters
+                      activeFilters={activeFilters}
+                      onFilterToggle={handleFilterToggle}
+                    />
+                  )}
 
                   {/* Menu items grouped by station */}
                   <div className="px-4 mt-4">
