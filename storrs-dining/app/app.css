@@ -173,6 +173,8 @@
   --color-border-primary: 55 65 81;        /* Gray-700 */
   --color-border-secondary: 31 41 55;      /* Gray-800 */
 
+  --color-interactive-hover: 55 65 81;     /* Gray-700 - darker hover for dark mode */
+
   --shadow-card: none;
   --shadow-card-hover: 0 0 0 1px rgb(255 255 255 / 0.1);
 
