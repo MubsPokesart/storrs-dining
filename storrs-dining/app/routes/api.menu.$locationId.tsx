@@ -52,12 +52,19 @@ export async function loader({ params, context }: LoaderFunctionArgs) {
 
     // Determine which meal period to fetch
     // If open, use current meal; if closed, default to lunch for preview
-    const mealPeriod = status.currentMeal || 'lunch';
+    let mealPeriod = status.currentMeal || 'lunch';
 
     // Fetch menu from database
-    // Note: For now, we'll return null since we don't have menu data seeded yet
-    // This will be populated when the scraper runs and seeds the database
-    const menu = await getMenuByLocationAndDate(db, locationId, today, mealPeriod);
+    let menu = await getMenuByLocationAndDate(db, locationId, today, mealPeriod);
+
+    // Fallback: if brunch is not found, try lunch instead
+    // (some dining halls may not have separate brunch menus in the scraper data)
+    if (!menu && mealPeriod === 'brunch') {
+      menu = await getMenuByLocationAndDate(db, locationId, today, 'lunch');
+      if (menu) {
+        mealPeriod = 'lunch';
+      }
+    }
 
     // Return typed JSON response with cache headers
     return Response.json(

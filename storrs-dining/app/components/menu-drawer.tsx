@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useQueryState } from "nuqs";
 import { useFetcher } from "react-router";
 import { Drawer } from "vaul";
@@ -6,6 +6,9 @@ import { X } from "lucide-react";
 import { cn } from "~/lib/utils";
 import type { LocationWithStatus } from "~/lib/db/types";
 import type { MenuLoaderData } from "~/routes/api.menu.$locationId";
+import { MenuFilters, type DietaryFilter } from "./menu-filters";
+import { StationGroup } from "./station-group";
+import type { MenuItem as MenuItemType } from "./menu-item";
 
 export interface MenuDrawerProps {
   // Locations with status from home loader
@@ -31,25 +34,69 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   // Use fetcher to load menu data from API route
   const fetcher = useFetcher<MenuLoaderData>();
 
+  // Dietary filter state
+  const [activeFilters, setActiveFilters] = useState<Set<DietaryFilter>>(new Set());
+
   const isOpen = !!hall;
 
   // Find the location data for the current hall
   const location = locations.find((loc) => loc.id === hall) || null;
 
-  // Fetch menu data when drawer opens
+  // Fetch menu data when drawer opens or hall changes
   useEffect(() => {
-    if (hall && fetcher.state === "idle" && !fetcher.data) {
+    if (hall) {
+      // Always fetch when hall changes, even if we have stale data
       fetcher.load(`/api/menu/${hall}`);
     }
-  }, [hall, fetcher]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hall]); // Only re-run when hall changes, not when fetcher changes
 
-  // Get menu data from fetcher
-  const menuData = fetcher.data;
+  // Get menu data from fetcher - only use if it matches current hall
+  const isDataForCurrentHall = fetcher.data?.location?.id === hall;
+  const menuData = isDataForCurrentHall ? fetcher.data : null;
   const menu = menuData?.menu || null;
-  const isLoading = fetcher.state === "loading";
+
+  // Show loading if fetcher is actively loading, OR if we're waiting for data to match current hall
+  const isLoading = fetcher.state === "loading" || (hall && !isDataForCurrentHall);
+
+  // Filter menu items based on active dietary filters
+  const filteredItems = useMemo(() => {
+    if (!menu?.items) return [];
+    if (activeFilters.size === 0) return menu.items;
+
+    return menu.items.filter((item) => {
+      if (activeFilters.has("vegan") && !item.isVegan) return false;
+      if (activeFilters.has("vegetarian") && !item.isVegetarian) return false;
+      if (activeFilters.has("gluten_free") && !item.isGlutenFree) return false;
+      return true;
+    });
+  }, [menu?.items, activeFilters]);
+
+  // Group items by station
+  const itemsByStation = useMemo(() => {
+    const grouped = new Map<string, MenuItemType[]>();
+    filteredItems.forEach((item) => {
+      const existing = grouped.get(item.station) || [];
+      grouped.set(item.station, [...existing, item]);
+    });
+    return grouped;
+  }, [filteredItems]);
+
+  const handleFilterToggle = (filter: DietaryFilter) => {
+    setActiveFilters((prev) => {
+      const next = new Set(prev);
+      if (next.has(filter)) {
+        next.delete(filter);
+      } else {
+        next.add(filter);
+      }
+      return next;
+    });
+  };
 
   const handleClose = () => {
     setHall(null);
+    setActiveFilters(new Set()); // Reset filters on close
   };
 
   return (
@@ -219,25 +266,57 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
               {/* Menu data available */}
               {!isLoading && menu && (
                 <div>
+                  {/* Meal period and date info */}
                   <p
                     className={cn(
-                      "font-body text-sm mb-4",
+                      "font-body text-sm mb-4 px-4",
                       "text-[rgb(var(--color-text-secondary))]"
                     )}
                   >
                     {menuData?.currentMealLabel || menuData?.mealPeriod} • {menuData?.date}
                   </p>
 
-                  {/* TODO: Add MenuFilters, StationGroup, and MenuItem components here */}
-                  <div className="flex flex-col items-center justify-center py-8 text-center">
-                    <p
-                      className={cn(
-                        "font-body text-sm",
-                        "text-[rgb(var(--color-text-secondary))]"
-                      )}
-                    >
-                      {menu.items.length} items found. Menu display components coming in Phase 7.
-                    </p>
+                  {/* Dietary filters - sticky at top */}
+                  <MenuFilters
+                    activeFilters={activeFilters}
+                    onFilterToggle={handleFilterToggle}
+                  />
+
+                  {/* Menu items grouped by station */}
+                  <div className="px-4 mt-4">
+                    {itemsByStation.size === 0 ? (
+                      // No items match filters
+                      <div className="flex flex-col items-center justify-center py-12 text-center">
+                        <div
+                          className="text-6xl mb-4"
+                          role="img"
+                          aria-label="No results"
+                        >
+                          🔍
+                        </div>
+                        <h3
+                          className={cn(
+                            "font-display text-xl font-semibold mb-2",
+                            "text-[rgb(var(--color-text-primary))]"
+                          )}
+                        >
+                          No items match filters
+                        </h3>
+                        <p
+                          className={cn(
+                            "font-body text-sm max-w-xs",
+                            "text-[rgb(var(--color-text-secondary))]"
+                          )}
+                        >
+                          Try adjusting your dietary filters to see more options.
+                        </p>
+                      </div>
+                    ) : (
+                      // Display stations with items
+                      Array.from(itemsByStation.entries()).map(([station, items]) => (
+                        <StationGroup key={station} station={station} items={items} />
+                      ))
+                    )}
                   </div>
                 </div>
               )}

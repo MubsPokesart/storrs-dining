@@ -167,6 +167,8 @@
 
   --color-status-open-bg: 5 46 22;         /* Green-900 */
   --color-status-closed-bg: 31 41 55;      /* Gray-800 */
+  --color-status-warning: 251 191 36;      /* Amber-400 - brighter for dark mode */
+  --color-status-warning-bg: 69 26 3;      /* Amber-950 - darker background */
 
   --color-border-primary: 55 65 81;        /* Gray-700 */
   --color-border-secondary: 31 41 55;      /* Gray-800 */
