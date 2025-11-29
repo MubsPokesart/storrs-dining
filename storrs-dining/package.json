@@ -15,7 +15,10 @@
 		"db:studio": "drizzle-kit studio",
 		"db:seed-locations": "wrangler d1 execute dining-db --file=scripts/seed-locations.sql",
 		"db:seed": "tsx scripts/seed.ts",
-		"db:seed:local": "tsx scripts/seed.ts --local"
+		"db:seed:local": "tsx scripts/seed.ts --local",
+		"db:query:local": "wrangler d1 execute dining-db --local --command",
+		"db:view:locations": "wrangler d1 execute dining-db --local --command=\"SELECT * FROM locations\"",
+		"db:view:menus": "wrangler d1 execute dining-db --local --command=\"SELECT m.*, COUNT(mi.id) as item_count FROM menus m LEFT JOIN menu_items mi ON m.id = mi.menu_id GROUP BY m.id\""
 	},
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.2.4",
