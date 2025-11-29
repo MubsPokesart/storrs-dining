@@ -1,5 +1,5 @@
 import { drizzle } from "drizzle-orm/d1";
-import { eq, and } from "drizzle-orm";
+import { eq, and, like } from "drizzle-orm";
 import * as schema from "./schema";
 
 export function getDb(d1: D1Database) {
@@ -61,4 +61,39 @@ export async function insertAnalyticsEvent(
     sessionId,
     metadata: metadata ? JSON.stringify(metadata) : null,
   });
+}
+
+export async function searchMenuItems(
+  db: ReturnType<typeof getDb>,
+  query: string,
+  date: string
+) {
+  // Search for menu items matching the query for today's menus
+  const results = await db
+    .select({
+      itemId: schema.menuItems.id,
+      itemName: schema.menuItems.name,
+      station: schema.menuItems.station,
+      isVegan: schema.menuItems.isVegan,
+      isVegetarian: schema.menuItems.isVegetarian,
+      isGlutenFree: schema.menuItems.isGlutenFree,
+      menuId: schema.menus.id,
+      mealPeriod: schema.menus.mealPeriod,
+      locationId: schema.menus.locationId,
+      locationName: schema.locations.name,
+      locationSlug: schema.locations.slug,
+    })
+    .from(schema.menuItems)
+    .innerJoin(schema.menus, eq(schema.menuItems.menuId, schema.menus.id))
+    .innerJoin(schema.locations, eq(schema.menus.locationId, schema.locations.id))
+    .where(
+      and(
+        like(schema.menuItems.name, `%${query}%`),
+        eq(schema.menus.date, date),
+        eq(schema.locations.isActive, true)
+      )
+    )
+    .limit(50);
+
+  return results;
 }

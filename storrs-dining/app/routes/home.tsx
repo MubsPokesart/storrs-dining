@@ -8,9 +8,11 @@ import { MenuDrawer } from "~/components/menu-drawer";
 import { Navbar } from "~/components/navbar";
 import { useEffect, useState } from "react";
 import { useQueryState } from "nuqs";
+import { useFetcher } from "react-router";
 import { Search } from "lucide-react";
 import { Input } from "~/components/ui/input";
 import { Badge } from "~/components/ui/badge";
+import type { SearchLoaderData } from "./api.search";
 
 // Loader data type matching API-CONTRACTS.md
 export interface HomeLoaderData {
@@ -94,6 +96,9 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
   const [filter, setFilter] = useState<"all" | "open" | "favorites">("all");
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
 
+  // Use fetcher for search API
+  const searchFetcher = useFetcher<SearchLoaderData>();
+
   // Load favorites from localStorage on mount
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -120,6 +125,19 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(favorites)));
   }, [favorites]);
 
+  // Debounced search effect
+  useEffect(() => {
+    // Only search if query is 2+ characters
+    if (searchQuery.length >= 2) {
+      const timeoutId = setTimeout(() => {
+        searchFetcher.load(`/api/search?q=${encodeURIComponent(searchQuery)}`);
+      }, 300); // 300ms debounce
+
+      return () => clearTimeout(timeoutId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery]);
+
   const toggleFavorite = (locationId: string) => {
     setFavorites((prev) => {
       const next = new Set(prev);
@@ -136,11 +154,34 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
     setHall(locationId);
   };
 
+  // Get location IDs from menu search results
+  const searchResultLocationIds = new Set(
+    searchFetcher.data?.results?.map((r) => r.locationId) || []
+  );
+
   // Filter locations based on search and filter
   const filteredLocations = locations.filter((location) => {
-    const matchesSearch =
-      location.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (location.locationName?.toLowerCase() || "").includes(searchQuery.toLowerCase());
+    let matchesSearch = true;
+
+    // If search query exists
+    if (searchQuery.trim()) {
+      // For queries >= 2 chars, use menu search results if available
+      if (searchQuery.length >= 2 && searchFetcher.data) {
+        // Match if location name matches OR if location has matching menu items
+        const nameMatches =
+          location.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (location.locationName?.toLowerCase() || "").includes(searchQuery.toLowerCase());
+
+        const menuMatches = searchResultLocationIds.has(location.id);
+
+        matchesSearch = nameMatches || menuMatches;
+      } else {
+        // For short queries (<2 chars), only search location names
+        matchesSearch =
+          location.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (location.locationName?.toLowerCase() || "").includes(searchQuery.toLowerCase());
+      }
+    }
 
     const matchesFilter =
       filter === "all" ||
@@ -180,6 +221,14 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-12 h-14 text-lg shadow-lg border-2 transition-all focus:shadow-xl font-body"
               />
+              {/* Search results indicator */}
+              {searchQuery.length >= 2 && searchFetcher.data && searchFetcher.data.results.length > 0 && (
+                <div className="absolute right-4 top-1/2 -translate-y-1/2">
+                  <Badge variant="secondary" className="font-body text-xs">
+                    {searchFetcher.data.results.length} menu item{searchFetcher.data.results.length !== 1 ? 's' : ''}
+                  </Badge>
+                </div>
+              )}
             </div>
 
             {/* Filter Pills */}

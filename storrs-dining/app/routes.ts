@@ -5,4 +5,5 @@ export default [
   route("api/health", "routes/api.health.tsx"),
   route("api/analytics", "routes/api.analytics.tsx"),
   route("api/menu/:locationId", "routes/api.menu.$locationId.tsx"),
+  route("api/search", "routes/api.search.tsx"),
 ] satisfies RouteConfig;
