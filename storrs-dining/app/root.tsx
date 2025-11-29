@@ -36,6 +36,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {/* Blocking script to prevent FOUC - runs before React hydration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const stored = localStorage.getItem('dining-storrs-theme');
+                const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.classList.add(theme);
+              })();
+            `,
+          }}
+        />
       </head>
       <body>
         {children}
