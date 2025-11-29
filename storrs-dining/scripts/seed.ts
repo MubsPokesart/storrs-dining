@@ -65,6 +65,11 @@ function main() {
   // Generate SQL statements
   const sqlStatements: string[] = [];
 
+  // Defer foreign key constraints until end of transaction
+  // D1 enforces foreign keys by default, but we need to defer them during bulk inserts
+  // MUST be set BEFORE starting the transaction
+  sqlStatements.push("PRAGMA defer_foreign_keys = ON;");
+
   // Start transaction
   sqlStatements.push("BEGIN TRANSACTION;");
 
@@ -82,11 +87,14 @@ DELETE FROM menus WHERE date = '${data.date}';
       continue;
     }
 
+    // Normalize meal_period to lowercase to match hours config
+    const normalizedMealPeriod = meal_period.toLowerCase();
+
     // Insert menu and get the ID
     // We'll use a two-step approach: insert menu, then insert items with menu_id
     const menuInsertSql = `
 INSERT INTO menus (location_id, date, meal_period)
-VALUES ('${location_id}', '${data.date}', '${escapeSql(meal_period)}');
+VALUES ('${location_id}', '${data.date}', '${escapeSql(normalizedMealPeriod)}');
     `.trim();
 
     sqlStatements.push(menuInsertSql);
@@ -103,7 +111,7 @@ VALUES ('${location_id}', '${data.date}', '${escapeSql(meal_period)}');
 INSERT INTO menu_items (menu_id, name, station, station_order, is_vegan, is_vegetarian, is_gluten_free)
 SELECT id, '${escapeSql(item.name)}', '${escapeSql(item.station)}', ${item.station_order}, ${vegan}, ${vegetarian}, ${glutenFree}
 FROM menus
-WHERE location_id = '${location_id}' AND date = '${data.date}' AND meal_period = '${escapeSql(meal_period)}';
+WHERE location_id = '${location_id}' AND date = '${data.date}' AND meal_period = '${escapeSql(normalizedMealPeriod)}';
       `.trim();
     }).join("\n");
 
@@ -114,6 +122,9 @@ WHERE location_id = '${location_id}' AND date = '${data.date}' AND meal_period =
 
   // Commit transaction
   sqlStatements.push("COMMIT;");
+
+  // Re-enable immediate foreign key checking after transaction
+  sqlStatements.push("PRAGMA defer_foreign_keys = OFF;");
 
   // Write SQL to temporary file
   const sqlFilePath = join(__dirname, "seed-menus.sql");
