@@ -179,7 +179,6 @@ def main():
     
     all_menus = []
     
-    # Iterate through all dining halls
     for key, location in DINING_HALLS.items():
         hall_menus = get_menu(key, location, month, day, year)
         all_menus.extend(hall_menus)
