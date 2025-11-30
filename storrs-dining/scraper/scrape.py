@@ -82,6 +82,7 @@ def get_menu(location_key, location_data, month, day, year):
     soup = BeautifulSoup(response.content, 'html.parser')
     
     meals_data = []
+    meals_parsed = set()
     
     # Find all top-level containers for meals, which are <td> tags with specific attributes.
     # Each meal period (Breakfast, Lunch, Dinner) is contained within its own <td valign="top">, there are unecessary tds as well, but we'll accept that for now.
@@ -94,6 +95,10 @@ def get_menu(location_key, location_data, month, day, year):
             continue
         
         base_meal_name = header.get_text(strip=True)
+
+        if base_meal_name in meals_parsed:
+            continue
+        meals_parsed.add(base_meal_name)
         
         current_meal_period = base_meal_name
         current_station = "Unknown Station"
