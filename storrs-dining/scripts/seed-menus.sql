@@ -2,6 +2,8 @@ PRAGMA defer_foreign_keys = ON;
 
 BEGIN TRANSACTION;
 
+DELETE FROM menu_items WHERE menu_id IN (SELECT id FROM menus WHERE date = '2025-11-29');
+
 DELETE FROM menus WHERE date = '2025-11-29';
 
 INSERT INTO menus (location_id, date, meal_period)

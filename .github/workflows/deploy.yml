@@ -26,9 +26,37 @@ jobs:
         run: npm run build
         working-directory: ./storrs-dining
 
+      - name: Run database migrations
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: ./storrs-dining
+          command: d1 migrations apply dining-db --remote
+
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: ./storrs-dining
+
+      - name: Prepare production SQL files
+        run: npm run db:prepare-prod
+        working-directory: ./storrs-dining
+
+      - name: Seed production database with locations
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: ./storrs-dining
+          command: d1 execute dining-db --remote --file=scripts/seed-locations.prod.sql
+
+      - name: Seed production database with menus
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: ./storrs-dining
+          command: d1 execute dining-db --remote --file=scripts/seed-menus.prod.sql

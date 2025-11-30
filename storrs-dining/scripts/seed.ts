@@ -73,7 +73,12 @@ function main() {
   // Start transaction
   sqlStatements.push("BEGIN TRANSACTION;");
 
-  // Delete existing menu items for today (cascade will handle menu_items)
+  // Delete existing menu items for today (required due to foreign key constraints)
+  sqlStatements.push(`
+DELETE FROM menu_items WHERE menu_id IN (SELECT id FROM menus WHERE date = '${data.date}');
+  `.trim());
+
+  // Delete existing menus for today
   sqlStatements.push(`
 DELETE FROM menus WHERE date = '${data.date}';
   `.trim());
@@ -133,6 +138,11 @@ WHERE location_id = '${location_id}' AND date = '${data.date}' AND meal_period =
 
   console.log(`\n📝 SQL file written to: ${sqlFilePath}`);
   console.log(`📦 Total SQL statements: ${sqlStatements.length}`);
+
+  if (process.argv.includes("--generate-only")) {
+    console.log("🛑 Generation only mode. Skipping execution.");
+    return;
+  }
 
   // Execute SQL via wrangler
   console.log("\n🚀 Executing SQL via wrangler...");
