@@ -304,18 +304,8 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
               {/* Menu data available */}
               {!isLoading && menuData && menuData.allMeals.length > 0 && (
                 <div>
-                  {/* Meal period and date info */}
-                  <p
-                    className={cn(
-                      "font-body text-sm mb-3 px-4",
-                      "text-[rgb(var(--color-text-secondary))]"
-                    )}
-                  >
-                    {menuData?.currentMealLabel || activeMealPeriod} • {menuData?.date}
-                  </p>
-
                   {/* Meal period tabs */}
-                  {menuData.allMeals.length > 1 && (
+                  {menuData.allMeals.length > 0 && (
                     <div className="px-4 mb-3">
                       <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
                         {menuData.allMeals.map(({ mealPeriod, menu: mealMenu }) => (
