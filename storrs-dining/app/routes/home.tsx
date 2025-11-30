@@ -72,10 +72,10 @@ export async function loader({ context }: Route.LoaderArgs) {
  */
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Dining at Storrs | UConn Dining Hall Menus" },
+    { title: "Dining at Storrs | Campus Dining Hall Menus" },
     {
       name: "description",
-      content: "View real-time dining hall hours and menus for UConn Storrs campus. Find what's open now and browse today's menu."
+      content: "View real-time dining hall hours and menus for Storrs campus. Find what's open now and browse today's menu."
     },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
     { name: "theme-color", content: "#000E2F" },
@@ -206,6 +206,16 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
           <p className="font-body text-lg text-[rgb(var(--color-text-secondary))]">
             Explore the Dining Halls Across Storrs
           </p>
+          <p className="font-body text-sm text-[rgb(var(--color-text-tertiary))] mt-2">
+            <a
+              href="https://forms.gle/H6X6Mu4S43eCzxou9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[rgb(var(--color-brand-primary))] transition-colors"
+            >
+              Help us improve - take our quick survey
+            </a>
+          </p>
         </header>
 
         {/* Search & Filters - Sticky */}
@@ -284,6 +294,23 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
 
         {/* Menu drawer (URL-driven, opens with ?hall=<locationId>) */}
         <MenuDrawer locations={locations} />
+
+        {/* Disclaimer Footer */}
+        <footer className="border-t border-[rgb(var(--color-border-secondary))] mt-12 py-8 px-6">
+          <p className="font-body text-xs text-center text-[rgb(var(--color-text-tertiary))] max-w-3xl mx-auto">
+            This website is an independent student-run project and is not affiliated with, endorsed by, or sponsored by the University of Connecticut.
+            All dining information is for reference only. For official updates, visit{" "}
+            <a
+              href="https://dining.uconn.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-[rgb(var(--color-brand-primary))] transition-colors"
+            >
+              dining.uconn.edu
+            </a>
+            .
+          </p>
+        </footer>
       </main>
     </div>
   );
