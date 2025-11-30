@@ -9,10 +9,10 @@ export interface MenuItem {
   menuId: number;
   name: string;
   station: string;
-  stationOrder: number;
-  isVegan: boolean;
-  isVegetarian: boolean;
-  isGlutenFree: boolean;
+  stationOrder: number | null;
+  isVegan: boolean | null;
+  isVegetarian: boolean | null;
+  isGlutenFree: boolean | null;
 }
 
 /**

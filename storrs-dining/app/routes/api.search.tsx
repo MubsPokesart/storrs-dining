@@ -1,5 +1,6 @@
 import type { LoaderFunctionArgs } from 'react-router';
 import { getDb, searchMenuItems } from '~/lib/db/queries';
+import { getTodayEastern } from '~/lib/hours';
 
 export interface SearchResult {
   itemId: number;
@@ -46,7 +47,7 @@ export async function loader({ request, context }: LoaderFunctionArgs) {
 
   try {
     const db = getDb(context.cloudflare.env.DB);
-    const today = new Date().toISOString().split('T')[0];
+    const today = getTodayEastern();
 
     const results = await searchMenuItems(db, query, today);
 

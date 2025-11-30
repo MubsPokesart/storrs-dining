@@ -1,6 +1,6 @@
 import type { LoaderFunctionArgs } from 'react-router';
 import { getDb, getAllLocations } from '~/lib/db/queries';
-import { getHoursStatus } from '~/lib/hours';
+import { getHoursStatus, getTodayEastern } from '~/lib/hours';
 import type { Location, MenuItem } from '~/lib/db/types';
 
 // Type for menu data returned from loader
@@ -48,10 +48,9 @@ export async function loader({ params, context }: LoaderFunctionArgs) {
       throw new Response('Location not found', { status: 404 });
     }
 
-    // Get current hours status and meal period
-    const now = new Date();
-    const status = getHoursStatus(locationId, now);
-    const today = now.toISOString().split('T')[0];
+    // Get current hours status and meal period (uses Eastern Time)
+    const status = getHoursStatus(locationId);
+    const today = getTodayEastern();
 
     // Determine which meal period to show by default
     let currentMealPeriod = status.currentMeal || 'lunch';

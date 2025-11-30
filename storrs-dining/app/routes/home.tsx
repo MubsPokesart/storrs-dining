@@ -1,7 +1,7 @@
 import type { Route } from "./+types/home";
 import { NuqsAdapter } from "nuqs/adapters/react-router/v7";
 import { getDb, getAllLocations } from "~/lib/db/queries";
-import { getHoursStatus } from "~/lib/hours";
+import { getHoursStatus, getEasternTime } from "~/lib/hours";
 import type { LocationWithStatus } from "~/lib/db/types";
 import { HallCard } from "~/components/hall-card";
 import { MenuDrawer } from "~/components/menu-drawer";
@@ -32,10 +32,10 @@ export async function loader({ context }: Route.LoaderArgs) {
     // Fetch all active locations from D1 database
     const locations = await getAllLocations(db);
 
-    // Compute hours status for each location
-    const now = new Date();
+    // Compute hours status for each location (uses Eastern Time)
+    const now = getEasternTime();
     const locationsWithStatus: LocationWithStatus[] = locations.map((loc) => {
-      const status = getHoursStatus(loc.id, now);
+      const status = getHoursStatus(loc.id);
 
       return {
         ...loc,

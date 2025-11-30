@@ -11,6 +11,33 @@ interface HoursStatus {
 }
 
 /**
+ * Get current time in Eastern Time (ET)
+ * Handles both EST and EDT automatically
+ */
+export function getEasternTime(): Date {
+  const now = new Date();
+  // Convert to Eastern Time using Intl API
+  const etString = now.toLocaleString("en-US", { timeZone: "America/New_York" });
+  return new Date(etString);
+}
+
+/**
+ * Get today's date in Eastern Time as YYYY-MM-DD string
+ */
+export function getTodayEastern(): string {
+  const now = new Date();
+  // Use toLocaleDateString with Eastern timezone to get the correct date parts
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: "America/New_York",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  };
+  const parts = new Intl.DateTimeFormat("en-CA", options).format(now);
+  return parts; // en-CA format is already YYYY-MM-DD
+}
+
+/**
  * Check if a date falls on a weekend
  */
 export function isWeekend(date: Date): boolean {
@@ -45,8 +72,9 @@ export function formatTime12h(time24: string): string {
 
 /**
  * Get current meal status for a location
+ * Uses Eastern Time by default
  */
-export function getHoursStatus(locationId: string, now: Date = new Date()): HoursStatus {
+export function getHoursStatus(locationId: string, now: Date = getEasternTime()): HoursStatus {
   const hours = HOURS[locationId];
 
   if (!hours) {
@@ -119,7 +147,7 @@ export function getHoursStatus(locationId: string, now: Date = new Date()): Hour
  * Check if closing within N minutes (for "Closing Soon" warning)
  */
 export function isClosingSoon(locationId: string, withinMinutes: number = 30): boolean {
-  const now = new Date();
+  const now = getEasternTime();
   const status = getHoursStatus(locationId, now);
 
   if (!status.isOpen || !status.closesAt) return false;
