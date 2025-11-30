@@ -76,7 +76,7 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
           defaultMeal = 'lunch';
         }
         // If late_night doesn't exist, fall back to dinner
-        else if (defaultMeal === 'late_night' && availableMeals.includes('dinner')) {
+        else if (defaultMeal === 'late night' && availableMeals.includes('dinner')) {
           defaultMeal = 'dinner';
         }
         // Otherwise just use the first available meal
@@ -331,6 +331,7 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
                             )}
                           >
                             {mealPeriod.charAt(0).toUpperCase() + mealPeriod.slice(1).replace('_', ' ')}
+                            {mealMenu && ` (${mealMenu.items.length})`}
                           </button>
                         ))}
                       </div>

@@ -56,7 +56,7 @@ export async function loader({ params, context }: LoaderFunctionArgs) {
     let currentMealPeriod = status.currentMeal || 'lunch';
 
     // Fetch all meal periods for the day
-    const mealPeriods = ['breakfast', 'brunch', 'lunch', 'dinner', 'late_night'];
+    const mealPeriods = ['breakfast', 'brunch', 'lunch', 'dinner', 'late night'];
     const allMeals = await Promise.all(
       mealPeriods.map(async (period) => {
         const menu = await getMenuByLocationAndDate(db, locationId, today, period);
