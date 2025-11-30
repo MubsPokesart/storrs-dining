@@ -14,6 +14,16 @@
 		"enabled": true
 	},
 	"workers_dev": true,
+	"routes": [
+		{
+			"pattern": "storrsdining.com/*",
+			"zone_name": "storrsdining.com"
+		},
+		{
+			"pattern": "www.storrsdining.com/*",
+			"zone_name": "storrsdining.com"
+		}
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",
