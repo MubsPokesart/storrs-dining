@@ -51,7 +51,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: ./storrs-dining
-          command: wrangler d1 execute dining-db --remote --file=scripts/seed-menus.prod.sql
+          command: d1 execute dining-db --remote --file=scripts/seed-menus.prod.sql
 
       - name: Upload scraper output as artifact
         uses: actions/upload-artifact@v4
