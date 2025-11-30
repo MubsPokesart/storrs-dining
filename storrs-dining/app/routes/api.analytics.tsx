@@ -6,7 +6,12 @@ export async function action({ request, context }: ActionFunctionArgs) {
     return Response.json({ error: "Method not allowed" }, { status: 405 });
   }
 
-  const body = await request.json();
+  const body = await request.json() as {
+    eventType?: string;
+    locationId?: string;
+    sessionId?: string;
+    metadata?: object;
+  };
   const { eventType, locationId, sessionId, metadata } = body;
 
   if (!eventType || !sessionId) {

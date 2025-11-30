@@ -5,9 +5,9 @@ export interface SearchResult {
   itemId: number;
   itemName: string;
   station: string;
-  isVegan: boolean;
-  isVegetarian: boolean;
-  isGlutenFree: boolean;
+  isVegan: boolean | null;
+  isVegetarian: boolean | null;
+  isGlutenFree: boolean | null;
   menuId: number;
   mealPeriod: string;
   locationId: string;
