@@ -84,8 +84,8 @@ def get_menu(location_key, location_data, month, day, year):
     meals_data = []
     
     # Find all top-level containers for meals, which are <td> tags with specific attributes.
-    # The example HTML shows <td valign="top" width="30%"> as the container for each meal column.
-    meal_containers = soup.find_all("td", valign="top", width="30%")
+    # Each meal period (Breakfast, Lunch, Dinner) is contained within its own <td valign="top">, there are unecessary tds as well, but we'll accept that for now.
+    meal_containers = soup.find_all("td", valign="top")
 
     for container in meal_containers:
         # Each container should have a div.shortmenumeals inside it
