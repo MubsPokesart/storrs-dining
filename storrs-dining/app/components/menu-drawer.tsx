@@ -61,7 +61,31 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   // Set active meal period to current meal when data loads
   useEffect(() => {
     if (menuData && !activeMealPeriod) {
-      setActiveMealPeriod(menuData.currentMealPeriod);
+      // Priority: current meal if available, otherwise find first available meal
+      let defaultMeal = menuData.currentMealPeriod;
+
+      // Check if current meal period has data
+      const currentMealExists = menuData.allMeals.some(m => m.mealPeriod === defaultMeal);
+
+      if (!currentMealExists && menuData.allMeals.length > 0) {
+        // Fallback logic for missing meal periods
+        const availableMeals = menuData.allMeals.map(m => m.mealPeriod);
+
+        // If brunch doesn't exist, fall back to lunch
+        if (defaultMeal === 'brunch' && availableMeals.includes('lunch')) {
+          defaultMeal = 'lunch';
+        }
+        // If late_night doesn't exist, fall back to dinner
+        else if (defaultMeal === 'late_night' && availableMeals.includes('dinner')) {
+          defaultMeal = 'dinner';
+        }
+        // Otherwise just use the first available meal
+        else {
+          defaultMeal = availableMeals[0];
+        }
+      }
+
+      setActiveMealPeriod(defaultMeal);
     }
   }, [menuData, activeMealPeriod]);
 
@@ -307,7 +331,6 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
                             )}
                           >
                             {mealPeriod.charAt(0).toUpperCase() + mealPeriod.slice(1).replace('_', ' ')}
-                            {mealMenu && ` (${mealMenu.items.length})`}
                           </button>
                         ))}
                       </div>
