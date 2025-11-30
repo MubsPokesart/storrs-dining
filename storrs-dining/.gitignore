@@ -13,6 +13,8 @@
 .dev.vars*
 worker-configuration.d.ts
 
+# Generated production SQL files (created from dev files)
+scripts/*.prod.sql
 
 !.dev.vars.example
 !.env.example
