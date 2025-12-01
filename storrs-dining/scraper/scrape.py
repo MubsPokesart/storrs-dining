@@ -82,6 +82,7 @@ def get_menu(location_key, location_data, month, day, year):
     soup = BeautifulSoup(response.content, 'html.parser')
     
     meals_data = []
+        
     meals_parsed = set()
     
     # Find all top-level containers for meals, which are <td> tags with specific attributes.
@@ -90,9 +91,16 @@ def get_menu(location_key, location_data, month, day, year):
 
     for container in meal_containers:
         # Each container should have a div.shortmenumeals inside it
-        header = container.find("div", class_="shortmenumeals")
-        if not header:
+        headers = container.find_all("div", class_="shortmenumeals")
+        if not headers:
             continue
+        
+        # If a container has multiple meal headers, it's likely a parent container holding all meals.
+        # We want to skip this and only process the specific containers for each meal.
+        if len(headers) > 1:
+            continue
+
+        header = headers[0]
         
         base_meal_name = header.get_text(strip=True)
 
