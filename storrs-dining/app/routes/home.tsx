@@ -8,6 +8,7 @@ import { MenuDrawer } from "~/components/menu-drawer";
 import { Navbar } from "~/components/navbar";
 import { useEffect, useState } from "react";
 import { useQueryState } from "nuqs";
+import { useAnalytics } from "~/hooks/use-analytics";
 import { useFetcher } from "react-router";
 import { Search } from "lucide-react";
 import { Input } from "~/components/ui/input";
@@ -70,7 +71,7 @@ export async function loader({ context }: Route.LoaderArgs) {
 /**
  * Meta tags for SEO
  */
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
     { title: "Dining at Storrs | Campus Dining Hall Menus" },
     {
@@ -95,6 +96,14 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState<"all" | "open" | "favorites">("all");
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
+
+  // Analytics
+  const { trackEvent } = useAnalytics();
+
+  // Track page view on mount
+  useEffect(() => {
+    trackEvent("page_view", { page: "home" });
+  }, [trackEvent]);
 
   // Use fetcher for search API
   const searchFetcher = useFetcher<SearchLoaderData>();
@@ -246,21 +255,30 @@ function HomeContent({ locations }: { locations: LocationWithStatus[] }) {
               <Badge
                 variant={filter === "all" ? "default" : "secondary"}
                 className="cursor-pointer px-6 py-2 text-sm font-body"
-                onClick={() => setFilter("all")}
+                onClick={() => {
+                  setFilter("all");
+                  trackEvent("filter_toggle", { filter: "all" });
+                }}
               >
                 All
               </Badge>
               <Badge
                 variant={filter === "open" ? "default" : "secondary"}
                 className="cursor-pointer px-6 py-2 text-sm font-body"
-                onClick={() => setFilter("open")}
+                onClick={() => {
+                  setFilter("open");
+                  trackEvent("filter_toggle", { filter: "open" });
+                }}
               >
                 Open Now
               </Badge>
               <Badge
                 variant={filter === "favorites" ? "default" : "secondary"}
                 className="cursor-pointer px-6 py-2 text-sm font-body"
-                onClick={() => setFilter("favorites")}
+                onClick={() => {
+                  setFilter("favorites");
+                  trackEvent("filter_toggle", { filter: "favorites" });
+                }}
               >
                 Favorites
               </Badge>

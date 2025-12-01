@@ -9,6 +9,7 @@ import type { MenuLoaderData } from "~/routes/api.menu.$locationId";
 import { MenuFilters, type DietaryFilter } from "./menu-filters";
 import { StationGroup } from "./station-group";
 import type { MenuItem as MenuItemType } from "./menu-item";
+import { useAnalytics } from "~/hooks/use-analytics";
 
 export interface MenuDrawerProps {
   // Locations with status from home loader
@@ -30,6 +31,7 @@ export interface MenuDrawerProps {
 export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   // Read hall ID from URL query params
   const [hall, setHall] = useQueryState("hall");
+  const { trackEvent } = useAnalytics();
 
   // Use fetcher to load menu data from API route
   const fetcher = useFetcher<MenuLoaderData>();
@@ -50,6 +52,7 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
     if (hall) {
       // Always fetch when hall changes, even if we have stale data
       fetcher.load(`/api/menu/${hall}`);
+      trackEvent("drawer_open", { locationId: hall });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hall]); // Only re-run when hall changes, not when fetcher changes
@@ -132,6 +135,9 @@ export function MenuDrawer({ locations = [] }: MenuDrawerProps) {
   };
 
   const handleClose = () => {
+    if (hall) {
+      trackEvent("drawer_close", { locationId: hall });
+    }
     setHall(null);
     setActiveFilters(new Set()); // Reset filters on close
     setActiveMealPeriod(null); // Reset meal period on close

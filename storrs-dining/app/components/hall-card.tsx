@@ -1,6 +1,7 @@
 import { Star } from "lucide-react";
 import { cn } from "~/lib/utils";
 import type { LocationWithStatus } from "~/lib/db/types";
+import { useAnalytics } from "~/hooks/use-analytics";
 
 /**
  * Props for HallCard component
@@ -36,6 +37,7 @@ export function HallCard({
   className,
 }: HallCardProps) {
   const { isOpen, currentMeal, closesAt, opensAt, closingSoon } = location;
+  const { trackEvent } = useAnalytics();
 
   return (
     <article
@@ -57,7 +59,10 @@ export function HallCard({
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-interactive-focus))]",
         className
       )}
-      onClick={() => onCardClick(location.id)}
+      onClick={() => {
+        onCardClick(location.id);
+        trackEvent("hall_card_click", { locationId: location.id });
+      }}
       role="button"
       tabIndex={0}
       aria-label={`View menu for ${location.name}`}
@@ -65,6 +70,7 @@ export function HallCard({
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           onCardClick(location.id);
+          trackEvent("hall_card_click", { locationId: location.id });
         }
       }}
     >
@@ -88,12 +94,20 @@ export function HallCard({
         onClick={(e) => {
           e.stopPropagation();
           onFavoriteToggle(location.id);
+          trackEvent("favorite_toggle", {
+            locationId: location.id,
+            action: isFavorite ? "remove" : "add",
+          });
         }}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
             e.stopPropagation();
             onFavoriteToggle(location.id);
+            trackEvent("favorite_toggle", {
+              locationId: location.id,
+              action: isFavorite ? "remove" : "add",
+            });
           }
         }}
       >
@@ -139,12 +153,11 @@ export function HallCard({
             isOpen && closingSoon
               ? "bg-[rgb(var(--color-status-warning-bg))] text-[rgb(var(--color-status-warning))]"
               : isOpen
-              ? "bg-[rgb(var(--color-status-open-bg))] text-[rgb(var(--color-status-open))]"
-              : "bg-[rgb(var(--color-status-closed-bg))] text-[rgb(var(--color-status-closed))]"
+                ? "bg-[rgb(var(--color-status-open-bg))] text-[rgb(var(--color-status-open))]"
+                : "bg-[rgb(var(--color-status-closed-bg))] text-[rgb(var(--color-status-closed))]"
           )}
-          aria-label={`${location.name} is ${isOpen ? "open" : "closed"}${
-            isOpen && closesAt ? ` until ${closesAt}` : ""
-          }${!isOpen && opensAt ? `, opens at ${opensAt}` : ""}`}
+          aria-label={`${location.name} is ${isOpen ? "open" : "closed"}${isOpen && closesAt ? ` until ${closesAt}` : ""
+            }${!isOpen && opensAt ? `, opens at ${opensAt}` : ""}`}
         >
           {/* Status indicator circle */}
           <span
