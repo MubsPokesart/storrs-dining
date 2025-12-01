@@ -1,4 +1,5 @@
 import { sqliteTable, text, integer, real } from "drizzle-orm/sqlite-core";
+import { sql } from "drizzle-orm";
 
 export const locations = sqliteTable("locations", {
   id: text("id").primaryKey(),
@@ -35,5 +36,5 @@ export const analyticsEvents = sqliteTable("analytics_events", {
   locationId: text("location_id"),
   sessionId: text("session_id").notNull(),
   metadata: text("metadata"),
-  createdAt: text("created_at").default("(datetime('now'))"),
+  createdAt: text("created_at").default(sql`(datetime('now'))`),
 });
